@@ -73,7 +73,8 @@ const Register = () => {
   };
 
   return (
-    <div className="background-img blur-img">
+    <div>
+      <div className="background-img"></div>
       <Wrapper>
         <form onSubmit={onSubmit}>
           {showAlert && <Alert />}
