@@ -10,5 +10,8 @@ const Wrapper = styled.div`
   .next-icon {
     margin-left: auto;
   }
+  .icon {
+    cursor: pointer;
+  }
 `;
 export default Wrapper;

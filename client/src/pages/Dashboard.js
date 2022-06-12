@@ -13,7 +13,6 @@ const Dashboard = () => {
         <MonthButton />
         <div className="flex-row">
           <Calender />
-          <h2>goals picture</h2>
         </div>
       </div>
     </Wrapper>

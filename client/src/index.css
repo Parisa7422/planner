@@ -148,6 +148,19 @@ form {
 
 /* Dashboard */
 
+/* Sidebar */
+
+.sidebar-btn {
+  background-color: var(--grey-200);
+  border: none;
+  color: var(--black);
+  width: 100%;
+  height: 40px;
+  border-radius: var(--borderRadius);
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
 /* Month button */
 .month-buttons {
   display: flex;

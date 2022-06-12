@@ -22,8 +22,7 @@ const Calender = () => {
     date.getFullYear(),
     date.getMonth()
   );
-  const { day } = lastDayCurrentMonth;
-  console.log(day);
+
   return (
     <Wrapper>
       <div className="days">

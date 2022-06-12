@@ -5,9 +5,9 @@ import previousIcon from "../assets/images/previous.png";
 const Inspiration = () => {
   return (
     <Wrapper>
-      <img src={previousIcon} alt="previous icon" />
+      <img className="icon" src={previousIcon} alt="previous icon" />
       <div className="inspire-bg">inspire text</div>
-      <img className="next-icon" src={nextIcon} alt="next icon" />
+      <img className="next-icon icon" src={nextIcon} alt="next icon" />
     </Wrapper>
   );
 };
