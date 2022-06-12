@@ -1,6 +1,4 @@
-import { get } from "mongoose";
-
-const month = () => {
+const MonthButton = () => {
   const monthNames = [
     "January",
     "February",
@@ -21,7 +19,6 @@ const month = () => {
     return today.toLocaleString("en-US", { month: "long" });
   };
 
-  getMonth();
   return (
     <div className="month-buttons">
       {monthNames.map((month, index) => {
@@ -38,4 +35,4 @@ const month = () => {
     </div>
   );
 };
-export default month;
+export default MonthButton;
