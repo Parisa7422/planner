@@ -34,9 +34,9 @@
   --grey-light: #edf0f2;
   --gmail-red: #ac2626;
   --facebook-blue: #405893;
-
+  --btn-green: #53a39f;
   /* rest of the var */
-  --borderRadius: 0.25rem;
+  --borderRadius: 0.30rem;
 }
 
 h1 {
@@ -68,6 +68,13 @@ p {
   top: 0;
 }
 
+/* Inspiration Box */
+.inspire-bg {
+  background: url(./assets/images/inspire-bg.png);
+  width: 100%;
+  filter: blur(2px);
+  opacity: 80%;
+}
 
 /* Landing */
 .header-position {
@@ -135,4 +142,36 @@ form {
 .alert-success {
   color: green;
   background: gray;
+}
+
+
+
+/* Dashboard */
+
+/* Month button */
+.month-buttons {
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-between;
+
+}
+
+.month-btn {
+  justify-content: space-around;
+  width: fit-content;
+  padding: 0.5%;
+  height: 30px;
+  color: var(--grey-300);
+  border-radius: var(--borderRadius);
+  border: solid var(--grey-300) 2px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.month-btn-selected {
+  background-color: var(--btn-green);
+  border: none;
+  color: var(--white);
+  border-radius: var(--borderRadius);
+  cursor: pointer;
 }

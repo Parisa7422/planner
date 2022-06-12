@@ -1,9 +1,11 @@
 import Logo from "../components/Logo";
 import Wrapper from "../assets/wrappers/NavigationBar";
 import { Link } from "react-router-dom";
+
 import note from "../assets/images/Note-icon.svg";
 import calender from "../assets/images/calendar-icon.svg";
-import about from "../assets/images/Note-icon.svg";
+import about from "../assets/images/About-icon.svg";
+
 const Navbar = () => {
   return (
     <Wrapper>
