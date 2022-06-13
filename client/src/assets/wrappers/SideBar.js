@@ -22,6 +22,7 @@ const Wrapper = styled.div`
     margin: auto;
     padding: 10% 0 45%;
     width: 70%;
+    position: relative;
   }
 `;
 

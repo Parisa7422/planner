@@ -159,7 +159,28 @@ form {
   border-radius: var(--borderRadius);
   text-transform: capitalize;
   cursor: pointer;
+  z-index: 0;
+  text-align: center;
+  line-height: 2.5;
 }
+
+.sidebar-btn-select {
+  height: 80%;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--grey-100);
+  color: var(--btn-green);
+}
+
+.goals-textarea {
+  width: 80%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  resize: none;
+}
+
+
 
 /* Month button */
 .month-buttons {
