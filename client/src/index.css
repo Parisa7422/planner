@@ -170,17 +170,67 @@ form {
   z-index: 2;
   background-color: var(--grey-100);
   color: var(--btn-green);
+  cursor: auto;
+}
+
+.close-btn {
+  z-index: 2;
+  position: absolute;
+  bottom: -15px;
+  right: 60px;
+  background: var(--btn-green);
+  color: var(--grey-100);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
 }
 
 .goals-textarea {
-  width: 80%;
+  width: 100%;
   border: none;
   padding: 4px;
   outline: none;
   resize: none;
 }
 
+.create-goal {
+  padding: 0;
+  width: 80%;
+  background-color: transparent;
+  height: fit-content;
+  margin: auto;
+  position: relative;
+}
 
+.form-btn {
+  position: absolute;
+  bottom: -15px;
+  right: 5px;
+  background: var(--btn-green);
+  color: var(--grey-100);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+.list-item {
+  text-align: left;
+  text-transform: none;
+  color: var(--black);
+  list-style: none;
+}
+
+.list-items {
+  padding: 0 10%;
+}
 
 /* Month button */
 .month-buttons {
