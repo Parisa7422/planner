@@ -16,9 +16,6 @@ const InputGoals = (props) => {
     props.onAdd(goal);
     setGoal("");
     e.preventDefault();
-    // setGoals((prevGoals) => {
-    //   return [...prevGoals, goal];
-    // });
   };
 
   return (
