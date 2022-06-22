@@ -6,7 +6,7 @@ const SidebarItem = (props) => {
   const [goals, setGoals] = useState([]);
 
   // Open sidebar item
-  const handleClick = () => {
+  const handleClick = (e) => {
     setIsOpen(true);
   };
 
@@ -19,10 +19,11 @@ const SidebarItem = (props) => {
   return (
     <div
       onClick={handleClick}
+      name={props.name}
       className={`sidebar-btn sidebar-btn${isOpen && "-select"}`}
     >
-      {props.name}
-      {isOpen && <InputGoals onAdd={addGoals} />}
+      {props.title}
+      {isOpen && <InputGoals onAdd={addGoals} title={props.name} />}
       {isOpen && (
         <div>
           <ul className="list-items">

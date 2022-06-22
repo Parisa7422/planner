@@ -5,6 +5,8 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
   LOGOUT_USER,
+  ADD_GOAL,
+  HANDLE_CHANGE,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -56,6 +58,19 @@ const reducer = (state, action) => {
       ...initialState,
       user: null,
       token: null,
+    };
+  }
+
+  if (action.type === HANDLE_CHANGE) {
+    return {
+      ...state,
+      [action.payload.name]: action.payload.value,
+    };
+  }
+
+  if (action.type === ADD_GOAL) {
+    return {
+      ...state,
     };
   }
   throw new Error(`no such action : ${action.type}`);

@@ -14,6 +14,7 @@ import connectDB from "./db/connect.js";
 
 // routets
 import authRoutes from "./routes/authRoutes.js";
+import goalRoutes from "./routes/goalRoutes.js";
 
 // Middleware
 import errorHandlerMiddleware from "./middleware/error-handler.js";
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/goals", goalRoutes);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 

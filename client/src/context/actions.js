@@ -18,3 +18,9 @@ export const SETUP_USER_ERROR = "SETUP_USER_ERROR";
 
 // Logout user
 export const LOGOUT_USER = "LOGOUT_USER";
+
+//GOAL
+export const ADD_GOAL = "ADD_GOAL";
+
+// CHANGE
+export const HANDLE_CHANGE = "HANDLE_CHANGE";
