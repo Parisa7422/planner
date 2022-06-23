@@ -226,6 +226,7 @@ form {
   text-transform: none;
   color: var(--black);
   list-style: none;
+  cursor: pointer;
 }
 
 .list-items {

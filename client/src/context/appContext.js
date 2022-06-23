@@ -8,6 +8,10 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
+  HANDLE_CHANGE,
+  ADD_GOAL,
+  GET_GOALS,
+  CLEAR_VALUES,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -20,6 +24,11 @@ const initialState = {
   alertText: "",
   user: user ? JSON.parse(user) : null,
   token: token,
+  title: "",
+  content: "",
+  done: false,
+  goals: [],
+  editTodoId: "",
 };
 
 const AppContext = React.createContext();
@@ -27,6 +36,36 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   // reducer is going to be function which will handle disptach
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // axios
+  const authFetch = axios.create({
+    baseURL: "/api/v1",
+  });
+
+  //request
+  authFetch.interceptors.request.use(
+    (config) => {
+      config.headers.common["Authorization"] = `Bearer ${state.token}`;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+  // response
+
+  authFetch.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      // console.log(error.response)
+      if (error.response.status === 401) {
+        logoutUser();
+      }
+      return Promise.reject(error);
+    }
+  );
 
   const displayAlert = () => {
     dispatch({ type: DISPLAY_ALERT });
@@ -79,9 +118,80 @@ const AppProvider = ({ children }) => {
     dispatch({ type: LOGOUT_USER });
     removeUserFromLocalStorage();
   };
+
+  //handlechange
+  const handleChange = ({ name, value }) => {
+    dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
+  };
+
+  //Clear values
+  const clearValues = () => {
+    dispatch({ type: CLEAR_VALUES });
+  };
+
+  //Goal
+  const createGoal = async ({ title }) => {
+    try {
+      const { content, done } = state;
+      await authFetch.post("/goals/add-todo", {
+        title,
+        content,
+        done,
+      });
+
+      dispatch({ type: ADD_GOAL });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
+  const getGoals = async () => {
+    try {
+      const { data } = await authFetch.get("/goals/todos");
+      const { goals } = data;
+
+      dispatch({
+        type: GET_GOALS,
+        payload: {
+          goals,
+        },
+      });
+    } catch (error) {
+      logoutUser();
+    }
+  };
+
+  const updateGoal = async (id) => {
+    try {
+      const { done } = state;
+      await authFetch.patch(`/goals/${id}`, { done });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
+  const deleteGoal = async (id) => {
+    try {
+      await authFetch.delete(`goals/${id}`);
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
   return (
     <AppContext.Provider
-      value={{ ...state, displayAlert, setupUser, logoutUser }}
+      value={{
+        ...state,
+        displayAlert,
+        setupUser,
+        logoutUser,
+        handleChange,
+        clearValues,
+        createGoal,
+        getGoals,
+        updateGoal,
+        deleteGoal,
+      }}
     >
       {children}
     </AppContext.Provider>

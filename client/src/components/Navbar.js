@@ -38,6 +38,7 @@ const Navbar = () => {
           className="logout-icon"
           style={user && { visibility: "visible" }}
           onClick={logoutUser}
+          alt="icon"
         />
       </div>
     </Wrapper>
