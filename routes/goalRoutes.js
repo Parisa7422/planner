@@ -5,10 +5,11 @@ import {
   getTodos,
   addTodo,
   deleteTodo,
+  updateTodo,
 } from "../controllers/GoalController.js";
 
 router.route("/todos").get(getTodos);
 router.route("/add-todo").post(addTodo);
-router.route("/delete-todo").patch(deleteTodo);
+router.route("/:id").delete(deleteTodo).patch(updateTodo);
 
 export default router;

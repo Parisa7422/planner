@@ -26,7 +26,9 @@ const initialState = {
   token: token,
   title: "",
   content: "",
+  done: false,
   goals: [],
+  editTodoId: "",
 };
 
 const AppContext = React.createContext();
@@ -130,10 +132,11 @@ const AppProvider = ({ children }) => {
   //Goal
   const createGoal = async ({ title }) => {
     try {
-      const { content } = state;
+      const { content, done } = state;
       await authFetch.post("/goals/add-todo", {
         title,
         content,
+        done,
       });
 
       dispatch({ type: ADD_GOAL });
@@ -158,6 +161,15 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const updateGoal = async (id) => {
+    try {
+      const { done } = state;
+      await authFetch.patch(`/goals/${id}`, { done });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -169,6 +181,7 @@ const AppProvider = ({ children }) => {
         clearValues,
         createGoal,
         getGoals,
+        updateGoal,
       }}
     >
       {children}

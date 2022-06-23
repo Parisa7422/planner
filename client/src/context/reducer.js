@@ -9,6 +9,7 @@ import {
   CLEAR_VALUES,
   ADD_GOAL,
   GET_GOALS,
+  SET_EDIT_TODO,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -91,6 +92,7 @@ const reducer = (state, action) => {
       goals: action.payload.goals,
     };
   }
+
   throw new Error(`no such action : ${action.type}`);
 };
 

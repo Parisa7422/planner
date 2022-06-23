@@ -25,8 +25,18 @@ const getTodos = async (req, res) => {
   //res.send("get todos");
 };
 
+const updateTodo = async (req, res) => {
+  const { id: todoId } = req.params;
+  const update = { done: true };
+
+  const updateTodo = await Goal.findOneAndUpdate({ _id: todoId }, update, {
+    new: true,
+  });
+  res.status(200).json({ updateTodo });
+};
+
 const deleteTodo = async (req, res) => {
   res.send("delet todo");
 };
 
-export { addTodo, getTodos, deleteTodo };
+export { addTodo, getTodos, deleteTodo, updateTodo };
