@@ -170,6 +170,14 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const deleteGoal = async (id) => {
+    try {
+      await authFetch.delete(`goals/${id}`);
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -182,6 +190,7 @@ const AppProvider = ({ children }) => {
         createGoal,
         getGoals,
         updateGoal,
+        deleteGoal,
       }}
     >
       {children}

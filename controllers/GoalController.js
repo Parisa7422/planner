@@ -36,7 +36,9 @@ const updateTodo = async (req, res) => {
 };
 
 const deleteTodo = async (req, res) => {
-  res.send("delet todo");
+  const { id: todoId } = req.params;
+  const deleteTodo = await Goal.deleteOne({ _id: todoId });
+  res.status(200).json({ deleteTodo });
 };
 
 export { addTodo, getTodos, deleteTodo, updateTodo };

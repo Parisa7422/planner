@@ -4,7 +4,7 @@ import InputGoals from "./InputGoals";
 
 const SidebarItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { getGoals, goals, updateGoal } = useAppContext();
+  const { getGoals, goals, updateGoal, deleteGoal } = useAppContext();
 
   // Open sidebar item
   const handleClick = () => {
@@ -18,6 +18,10 @@ const SidebarItem = (props) => {
 
   const handleEdit = (id) => {
     updateGoal(id);
+  };
+
+  const handleDelete = (id) => {
+    deleteGoal(id);
   };
   return (
     <div
@@ -43,6 +47,13 @@ const SidebarItem = (props) => {
                   }}
                 >
                   {goal.content}
+                  <button
+                    onClick={() => {
+                      handleDelete(goal._id);
+                    }}
+                  >
+                    d
+                  </button>
                 </li>
               );
             })}
