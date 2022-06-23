@@ -8,8 +8,10 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
-  ADD_GOAL,
   HANDLE_CHANGE,
+  ADD_GOAL,
+  GET_GOALS,
+  CLEAR_VALUES,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -24,6 +26,7 @@ const initialState = {
   token: token,
   title: "",
   content: "",
+  goals: [],
 };
 
 const AppContext = React.createContext();
@@ -36,6 +39,31 @@ const AppProvider = ({ children }) => {
   const authFetch = axios.create({
     baseURL: "/api/v1",
   });
+
+  //request
+  authFetch.interceptors.request.use(
+    (config) => {
+      config.headers.common["Authorization"] = `Bearer ${state.token}`;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+  // response
+
+  authFetch.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      // console.log(error.response)
+      if (error.response.status === 401) {
+        logoutUser();
+      }
+      return Promise.reject(error);
+    }
+  );
 
   const displayAlert = () => {
     dispatch({ type: DISPLAY_ALERT });
@@ -94,10 +122,15 @@ const AppProvider = ({ children }) => {
     dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
   };
 
+  //Clear values
+  const clearValues = () => {
+    dispatch({ type: CLEAR_VALUES });
+  };
+
   //Goal
-  const createGoal = async () => {
+  const createGoal = async ({ title }) => {
     try {
-      const { title, content } = state;
+      const { content } = state;
       await authFetch.post("/goals/add-todo", {
         title,
         content,
@@ -105,7 +138,23 @@ const AppProvider = ({ children }) => {
 
       dispatch({ type: ADD_GOAL });
     } catch (error) {
-      return error;
+      return console.log(error);
+    }
+  };
+
+  const getGoals = async () => {
+    try {
+      const { data } = await authFetch.get("/goals/todos");
+      const { goals } = data;
+
+      dispatch({
+        type: GET_GOALS,
+        payload: {
+          goals,
+        },
+      });
+    } catch (error) {
+      logoutUser();
     }
   };
 
@@ -116,8 +165,10 @@ const AppProvider = ({ children }) => {
         displayAlert,
         setupUser,
         logoutUser,
-        createGoal,
         handleChange,
+        clearValues,
+        createGoal,
+        getGoals,
       }}
     >
       {children}

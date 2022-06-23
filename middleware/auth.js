@@ -15,7 +15,7 @@ const auth = async (req, res, next) => {
   } catch (error) {
     throw new Error();
   }
-  console.log(authHeader);
+  //console.log(authHeader); --> Beare token
 };
 
 export default auth;

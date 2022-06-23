@@ -1,21 +1,21 @@
 import { useState } from "react";
+import { useAppContext } from "../context/appContext";
 import InputGoals from "./InputGoals";
 
 const SidebarItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [goals, setGoals] = useState([]);
+  const { getGoals, goals } = useAppContext();
 
   // Open sidebar item
-  const handleClick = (e) => {
+  const handleClick = () => {
     setIsOpen(true);
+    getGoals();
   };
 
-  const addGoals = (newGoal) => {
-    setGoals((prevGoal) => {
-      return [...prevGoal, newGoal];
-    });
-    console.log(goals);
-  };
+  const filtered = goals.filter(({ title }) => {
+    return title === props.name;
+  });
+
   return (
     <div
       onClick={handleClick}
@@ -23,14 +23,14 @@ const SidebarItem = (props) => {
       className={`sidebar-btn sidebar-btn${isOpen && "-select"}`}
     >
       {props.title}
-      {isOpen && <InputGoals onAdd={addGoals} title={props.name} />}
+      {isOpen && <InputGoals title={props.name} />}
       {isOpen && (
         <div>
           <ul className="list-items">
-            {goals.map((goal) => {
+            {filtered.map((goal) => {
               return (
-                <li key={goal} className="list-item">
-                  {goal}
+                <li key={goal._id} className="list-item">
+                  {goal.content}
                 </li>
               );
             })}

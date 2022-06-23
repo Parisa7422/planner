@@ -5,8 +5,10 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
   LOGOUT_USER,
-  ADD_GOAL,
   HANDLE_CHANGE,
+  CLEAR_VALUES,
+  ADD_GOAL,
+  GET_GOALS,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -61,6 +63,16 @@ const reducer = (state, action) => {
     };
   }
 
+  if (action.type === CLEAR_VALUES) {
+    const initialState = {
+      content: "",
+    };
+
+    return {
+      ...state,
+      ...initialState,
+    };
+  }
   if (action.type === HANDLE_CHANGE) {
     return {
       ...state,
@@ -71,6 +83,12 @@ const reducer = (state, action) => {
   if (action.type === ADD_GOAL) {
     return {
       ...state,
+    };
+  }
+  if (action.type === GET_GOALS) {
+    return {
+      ...state,
+      goals: action.payload.goals,
     };
   }
   throw new Error(`no such action : ${action.type}`);

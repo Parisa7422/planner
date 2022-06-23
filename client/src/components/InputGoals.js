@@ -3,7 +3,7 @@ import { useAppContext } from "../context/appContext";
 
 const InputGoals = (props) => {
   const [isExpanded, setExpanded] = useState(false);
-  const { createGoal, content, title, handleChange } = useAppContext();
+  const { createGoal, content, handleChange, clearValues } = useAppContext();
 
   const handleClick = () => {
     setExpanded(true);
@@ -13,13 +13,14 @@ const InputGoals = (props) => {
     const name = e.target.name;
     const value = e.target.value;
     handleChange({ name, value });
-    console.log(props.title);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.onAdd(content);
-    createGoal();
+
+    const title = props.title;
+    createGoal({ title });
+    clearValues();
   };
 
   return (

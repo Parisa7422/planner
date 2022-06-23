@@ -21,6 +21,10 @@ export const LOGOUT_USER = "LOGOUT_USER";
 
 //GOAL
 export const ADD_GOAL = "ADD_GOAL";
+export const GET_GOALS = "GET_GOALS";
 
 // CHANGE
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
+
+//CLEAR
+export const CLEAR_VALUES = "CLEAR_VALUES";
