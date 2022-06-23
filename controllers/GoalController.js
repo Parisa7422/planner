@@ -1,6 +1,7 @@
 import Goal from "../models/Goal.js";
 
 const addTodo = async (req, res) => {
+  req.body.user_id = req.user.userId;
   const goal = await Goal.create(req.body);
   res.status(201).json({ goal });
   // res.send("add");

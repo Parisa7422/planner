@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
 
 const GoalSchema = new mongoose.Schema({
-  title: { type: String, required: true },
+  title: { type: String },
   content: { type: String, required: true },
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  user_id: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: [true, "Please provide user"],
+  },
 });
 
 export default mongoose.model("Goal", GoalSchema);
