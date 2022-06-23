@@ -13,5 +13,13 @@ const Wrapper = styled.div`
   .icon {
     cursor: pointer;
   }
+  .inspire-text {
+    text-align: center;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    right: 30%;
+    font-size: 1.5em;
+  }
 `;
 export default Wrapper;
