@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
+import Notes from "./pages/Notes";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           }
         />
         <Route path="/register" element={<Register />} />
+        <Route path="/notes" element={<Notes />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/contact-us" element={<h2>Contact us</h2>} />
         <Route path="/about-us" element={<h2>About us</h2>} />

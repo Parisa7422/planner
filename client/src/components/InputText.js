@@ -1,39 +1,31 @@
 import { useState } from "react";
 import { useAppContext } from "../context/appContext";
 
-const InputGoals = (props) => {
+const InputText = (props) => {
   const [isExpanded, setExpanded] = useState(false);
-  const { createGoal, content, handleChange, clearValues } = useAppContext();
+  const { handleChange } = useAppContext();
 
   const handleClick = () => {
     setExpanded(true);
   };
 
-  const handleGoalInput = (e) => {
+  const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     handleChange({ name, value });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    const title = props.title;
-    createGoal({ title });
-    clearValues();
-  };
-
   return (
     <div>
-      <form onSubmit={onSubmit} className="create-goal">
+      <form onSubmit={props.onAdd} className="create-goal">
         <textarea
-          onChange={handleGoalInput}
+          onChange={handleInput}
           onClick={handleClick}
-          name="content"
-          className="goals-textarea"
-          placeholder="add a goal .."
+          name={props.name}
+          className={props.style}
+          placeholder={props.placeholder}
           rows={isExpanded ? 3 : 1}
-          value={content}
+          value={props.value}
         />
         {isExpanded && (
           <button type="submit" className="form-btn">
@@ -44,4 +36,4 @@ const InputGoals = (props) => {
     </div>
   );
 };
-export default InputGoals;
+export default InputText;

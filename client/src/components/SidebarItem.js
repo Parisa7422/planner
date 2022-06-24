@@ -1,15 +1,24 @@
 import { useState } from "react";
 import { useAppContext } from "../context/appContext";
-import InputGoals from "./InputGoals";
+import InputText from "./InputText";
 
 const SidebarItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { getGoals, goals, updateGoal, deleteGoal } = useAppContext();
+  const {
+    getGoals,
+    goals,
+    updateGoal,
+    deleteGoal,
+    createGoal,
+    clearValues,
+    content,
+  } = useAppContext();
 
   // Open sidebar item
   const handleClick = () => {
     setIsOpen(true);
     getGoals();
+    console.log(props.name);
   };
 
   const filtered = goals.filter(({ title }) => {
@@ -23,6 +32,15 @@ const SidebarItem = (props) => {
   const handleDelete = (id) => {
     deleteGoal(id);
   };
+
+  // create Goal
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const title = props.name;
+    createGoal({ title });
+    clearValues();
+  };
+
   return (
     <div
       onClick={handleClick}
@@ -30,7 +48,15 @@ const SidebarItem = (props) => {
       className={`sidebar-btn sidebar-btn${isOpen && "-select"}`}
     >
       {props.title}
-      {isOpen && <InputGoals title={props.name} />}
+      {isOpen && (
+        <InputText
+          placeholder="Add a goal ..."
+          onAdd={onSubmit}
+          name="content"
+          value={content}
+          style="goals-textarea"
+        />
+      )}
       {isOpen && (
         <div>
           <ul className="list-items">
