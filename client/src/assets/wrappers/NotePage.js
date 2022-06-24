@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     color: white;
     width: fit-content;
     height: fit-content;
-    padding: 1%;
+    padding: 2%;
     border-radius: var(--borderRadius);
   }
 
@@ -22,7 +22,6 @@ const Wrapper = styled.div`
     margin: 5%;
     display: grid;
     grid-gap: 20px;
-    background-color: aqua;
   }
 `;
 

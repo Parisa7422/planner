@@ -96,7 +96,7 @@ const reducer = (state, action) => {
     };
   }
 
-  if ((action.type = GET_QUOTES)) {
+  if (action.type === GET_QUOTES) {
     return {
       ...state,
       quotes: action.payload.quotes,

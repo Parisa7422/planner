@@ -7,9 +7,9 @@ const Notes = () => {
   const { createNote, noteTitle, noteContent, getNotes, notes, clearValues } =
     useAppContext();
 
-  // useEffect(() => {
-  //   getNotes();
-  // }, []);
+  useEffect(() => {
+    getNotes();
+  }, [notes]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -29,13 +29,7 @@ const Notes = () => {
         formStyle="create-note"
         onAdd={onSubmit}
       />
-      <button
-        onClick={() => {
-          getNotes();
-        }}
-      >
-        get notes
-      </button>
+
       <div className="note-direction">
         {notes.map((note) => {
           return (

@@ -146,7 +146,7 @@ const AppProvider = ({ children }) => {
         done,
       });
 
-      dispatch({ type: ADD_GOAL });
+      // dispatch({ type: ADD_GOAL });
     } catch (error) {
       return console.log(error);
     }
@@ -220,6 +220,7 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch.get("/notes");
       const { notes } = data;
+      // console.log(notes);
 
       dispatch({
         type: GET_NOTES,
