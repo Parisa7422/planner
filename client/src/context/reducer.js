@@ -4,7 +4,14 @@ import {
   SETUP_USER_ERROR,
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
+  LOGOUT_USER,
+  HANDLE_CHANGE,
+  CLEAR_VALUES,
+  ADD_GOAL,
+  GET_GOALS,
+  GET_QUOTES,
 } from "./actions";
+import { initialState } from "./appContext";
 const reducer = (state, action) => {
   if (action.type === DISPLAY_ALERT) {
     return {
@@ -46,6 +53,51 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
+    };
+  }
+
+  if (action.type === LOGOUT_USER) {
+    return {
+      ...initialState,
+      user: null,
+      token: null,
+    };
+  }
+
+  if (action.type === CLEAR_VALUES) {
+    const initialState = {
+      content: "",
+    };
+
+    return {
+      ...state,
+      ...initialState,
+    };
+  }
+  if (action.type === HANDLE_CHANGE) {
+    return {
+      ...state,
+      [action.payload.name]: action.payload.value,
+    };
+  }
+
+  if (action.type === ADD_GOAL) {
+    return {
+      ...state,
+    };
+  }
+  if (action.type === GET_GOALS) {
+    return {
+      ...state,
+      goals: action.payload.goals,
+    };
+  }
+
+  if ((action.type = GET_QUOTES)) {
+    return {
+      ...state,
+      quotes: action.payload.quotes,
+      totalQuotes: action.payload.totalQuotes,
     };
   }
   throw new Error(`no such action : ${action.type}`);

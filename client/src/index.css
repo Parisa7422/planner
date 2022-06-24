@@ -34,9 +34,9 @@
   --grey-light: #edf0f2;
   --gmail-red: #ac2626;
   --facebook-blue: #405893;
-
+  --btn-green: #53a39f;
   /* rest of the var */
-  --borderRadius: 0.25rem;
+  --borderRadius: 0.30rem;
 }
 
 h1 {
@@ -68,6 +68,15 @@ p {
   top: 0;
 }
 
+/* Inspiration Box */
+.inspire-bg {
+  background: url(./assets/images/inspire-bg.png);
+  width: 100%;
+  filter: blur(2px);
+  opacity: 70%;
+  position: relative;
+
+}
 
 /* Landing */
 .header-position {
@@ -135,4 +144,121 @@ form {
 .alert-success {
   color: green;
   background: gray;
+}
+
+
+
+/* Dashboard */
+
+/* Sidebar */
+
+.sidebar-btn {
+  background-color: var(--grey-200);
+  border: none;
+  color: var(--black);
+  width: 100%;
+  height: 40px;
+  border-radius: var(--borderRadius);
+  text-transform: capitalize;
+  cursor: pointer;
+  z-index: 0;
+  text-align: center;
+  line-height: 2.5;
+}
+
+.sidebar-btn-select {
+  height: 80%;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--grey-100);
+  color: var(--btn-green);
+  cursor: auto;
+}
+
+.close-btn {
+  z-index: 2;
+  position: absolute;
+  bottom: -15px;
+  right: 60px;
+  background: var(--btn-green);
+  color: var(--grey-100);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+.goals-textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  resize: none;
+}
+
+.create-goal {
+  padding: 0;
+  width: 80%;
+  background-color: transparent;
+  height: fit-content;
+  margin: auto;
+  position: relative;
+}
+
+.form-btn {
+  position: absolute;
+  bottom: -15px;
+  right: 5px;
+  background: var(--btn-green);
+  color: var(--grey-100);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+.list-item {
+  text-align: left;
+  text-transform: none;
+  color: var(--black);
+  list-style: none;
+  cursor: pointer;
+}
+
+.list-items {
+  padding: 0 10%;
+}
+
+/* Month button */
+.month-buttons {
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-between;
+
+}
+
+.month-btn {
+  justify-content: space-around;
+  width: fit-content;
+  padding: 0.5%;
+  height: 30px;
+  color: var(--grey-300);
+  border-radius: var(--borderRadius);
+  border: solid var(--grey-300) 2px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.month-btn-selected {
+  background-color: var(--btn-green);
+  border: none;
+  color: var(--white);
+  border-radius: var(--borderRadius);
+  cursor: pointer;
 }

@@ -14,10 +14,13 @@ import connectDB from "./db/connect.js";
 
 // routets
 import authRoutes from "./routes/authRoutes.js";
+import goalRoutes from "./routes/goalRoutes.js";
+import quoteRoutes from "./routes/quoteRoute.js";
 
 // Middleware
 import errorHandlerMiddleware from "./middleware/error-handler.js";
 import notFoundMiddleware from "./middleware/not-found.js";
+import authenticateUser from "./middleware/auth.js";
 
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
@@ -31,6 +34,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/goals", authenticateUser, goalRoutes);
+app.use("/api/v1/quotes", authenticateUser, quoteRoutes);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 

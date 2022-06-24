@@ -15,3 +15,19 @@ export const CLEAR_ALERT = "CLEAR_ALERT";
 export const SETUP_USER_BEGIN = "SETUP_USER_BEGIN";
 export const SETUP_USER_SUCCESS = "SETUP_USER_SUCCESS";
 export const SETUP_USER_ERROR = "SETUP_USER_ERROR";
+
+// Logout user
+export const LOGOUT_USER = "LOGOUT_USER";
+
+//GOAL
+export const ADD_GOAL = "ADD_GOAL";
+export const GET_GOALS = "GET_GOALS";
+
+// CHANGE
+export const HANDLE_CHANGE = "HANDLE_CHANGE";
+
+//CLEAR
+export const CLEAR_VALUES = "CLEAR_VALUES";
+
+//QUOTES
+export const GET_QUOTES = "GET_QUOTES";
