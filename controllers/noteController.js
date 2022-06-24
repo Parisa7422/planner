@@ -13,7 +13,14 @@ const getAllNotes = async (req, res) => {
 };
 
 const updateNote = async (req, res) => {
-  res.send("update note");
+  const { id: noteID } = req.params;
+
+  const updateNote = await Note.findOneAndUpdate({ _id: noteID }, req.body, {
+    new: true,
+  });
+
+  res.status(200).json({ updateNote });
+  res.send("update");
 };
 
 const deleteNote = async (req, res) => {

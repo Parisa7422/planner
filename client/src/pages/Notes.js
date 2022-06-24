@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Wrapper from "../assets/wrappers/NotePage";
 import InputText from "../components/InputText";
 import { useAppContext } from "../context/appContext";
@@ -18,6 +18,12 @@ const Notes = () => {
     getNotes();
   };
 
+  const handleEdit = (e) => {
+    if (e.keyCode === 13) {
+      alert("entered");
+    }
+  };
+
   return (
     <Wrapper>
       <InputText
@@ -34,9 +40,17 @@ const Notes = () => {
       <div className="note-direction">
         {notes.map((note) => {
           return (
-            <div key={note._id} className="note-box">
-              <h3>{note.noteTitle}</h3>
-              {note.noteContent}
+            <div key={note._id} className="note-box" onKeyUp={handleEdit}>
+              <input
+                className="note-content"
+                name="noteTitle"
+                value={note.noteTitle}
+              />
+              <input
+                className="note-content"
+                name="noteContent"
+                value={note.noteContent}
+              />
             </div>
           );
         })}

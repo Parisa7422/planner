@@ -11,6 +11,7 @@ import {
   GET_GOALS,
   GET_QUOTES,
   GET_NOTES,
+  EDIT_NOTE,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -108,6 +109,13 @@ const reducer = (state, action) => {
     return {
       ...state,
       notes: action.payload.notes,
+    };
+  }
+  if (action.type === EDIT_NOTE) {
+    return {
+      ...state,
+      noteContent: action.payload.noteContent,
+      noteTitle: action.payload.noteTitle,
     };
   }
 

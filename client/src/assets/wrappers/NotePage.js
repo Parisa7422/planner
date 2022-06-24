@@ -28,13 +28,12 @@ const Wrapper = styled.div`
     align-items: baseline;
     justify-content: space-around;
 
-    /* margin: 3%;
-    display: grid;
-    grid-gap: 5%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(50px, auto);
-    background-color: aliceblue;
-    align-items: center; */
+    .note-content,
+    .note-content:focus {
+      background: transparent;
+      border: none;
+      outline: none;
+    }
   }
 `;
 

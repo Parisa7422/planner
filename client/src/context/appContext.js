@@ -9,11 +9,11 @@ import {
   SETUP_USER_ERROR,
   LOGOUT_USER,
   HANDLE_CHANGE,
-  ADD_GOAL,
   GET_GOALS,
   CLEAR_VALUES,
   GET_QUOTES,
   GET_NOTES,
+  EDIT_NOTE,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -226,6 +226,25 @@ const AppProvider = ({ children }) => {
         type: GET_NOTES,
         payload: {
           notes,
+        },
+      });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
+  const updateNote = async (id) => {
+    try {
+      const { noteTitle, noteContent } = state;
+      await authFetch.patch(`/notes/${id}`, {
+        noteContent,
+        noteTitle,
+      });
+      dispatch({
+        type: EDIT_NOTE,
+        payload: {
+          noteContent,
+          noteTitle,
         },
       });
     } catch (error) {
