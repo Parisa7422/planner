@@ -9,7 +9,7 @@ import {
   CLEAR_VALUES,
   ADD_GOAL,
   GET_GOALS,
-  SET_EDIT_TODO,
+  GET_QUOTES,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -93,6 +93,13 @@ const reducer = (state, action) => {
     };
   }
 
+  if ((action.type = GET_QUOTES)) {
+    return {
+      ...state,
+      quotes: action.payload.quotes,
+      totalQuotes: action.payload.totalQuotes,
+    };
+  }
   throw new Error(`no such action : ${action.type}`);
 };
 

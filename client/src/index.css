@@ -73,7 +73,9 @@ p {
   background: url(./assets/images/inspire-bg.png);
   width: 100%;
   filter: blur(2px);
-  opacity: 80%;
+  opacity: 70%;
+  position: relative;
+
 }
 
 /* Landing */

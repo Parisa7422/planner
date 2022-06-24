@@ -28,3 +28,6 @@ export const HANDLE_CHANGE = "HANDLE_CHANGE";
 
 //CLEAR
 export const CLEAR_VALUES = "CLEAR_VALUES";
+
+//QUOTES
+export const GET_QUOTES = "GET_QUOTES";

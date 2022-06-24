@@ -12,6 +12,7 @@ import {
   ADD_GOAL,
   GET_GOALS,
   CLEAR_VALUES,
+  GET_QUOTES,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -29,6 +30,8 @@ const initialState = {
   done: false,
   goals: [],
   editTodoId: "",
+  quotes: [],
+  totalQuotes: "",
 };
 
 const AppContext = React.createContext();
@@ -178,6 +181,22 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const getAllQuotes = async () => {
+    try {
+      const { data } = await authFetch.get("/quotes");
+      const { quotes, totalQuotes } = data;
+      dispatch({
+        type: GET_QUOTES,
+        payload: {
+          quotes,
+          totalQuotes,
+        },
+      });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -191,6 +210,7 @@ const AppProvider = ({ children }) => {
         getGoals,
         updateGoal,
         deleteGoal,
+        getAllQuotes,
       }}
     >
       {children}
