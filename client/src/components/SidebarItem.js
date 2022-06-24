@@ -18,7 +18,6 @@ const SidebarItem = (props) => {
   const handleClick = () => {
     setIsOpen(true);
     getGoals();
-    console.log(props.name);
   };
 
   const filtered = goals.filter(({ title }) => {
@@ -54,7 +53,9 @@ const SidebarItem = (props) => {
           onAdd={onSubmit}
           name="content"
           value={content}
-          style="goals-textarea"
+          class="goals-textarea"
+          formStyle="create-goal"
+          visible={{ display: "none" }}
         />
       )}
       {isOpen && (
@@ -90,6 +91,7 @@ const SidebarItem = (props) => {
         <button
           onMouseDown={() => {
             setIsOpen(false);
+            clearValues();
           }}
           className="close-btn"
         >

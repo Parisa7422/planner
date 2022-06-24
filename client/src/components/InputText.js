@@ -17,12 +17,21 @@ const InputText = (props) => {
 
   return (
     <div>
-      <form onSubmit={props.onAdd} className="create-goal">
+      <form onSubmit={props.onAdd} className={props.formStyle}>
+        {isExpanded && (
+          <input
+            placeholder="Title"
+            value={props.inputValue}
+            style={props.visible}
+            name={props.inputName}
+            onChange={handleInput}
+          />
+        )}
         <textarea
           onChange={handleInput}
           onClick={handleClick}
           name={props.name}
-          className={props.style}
+          className={props.class}
           placeholder={props.placeholder}
           rows={isExpanded ? 3 : 1}
           value={props.value}

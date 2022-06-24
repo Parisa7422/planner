@@ -10,6 +10,7 @@ import {
   ADD_GOAL,
   GET_GOALS,
   GET_QUOTES,
+  GET_NOTES,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -67,6 +68,8 @@ const reducer = (state, action) => {
   if (action.type === CLEAR_VALUES) {
     const initialState = {
       content: "",
+      noteContent: "",
+      noteTitle: "",
     };
 
     return {
@@ -100,6 +103,14 @@ const reducer = (state, action) => {
       totalQuotes: action.payload.totalQuotes,
     };
   }
+
+  if (action.type === GET_NOTES) {
+    return {
+      ...state,
+      notes: action.payload.notes,
+    };
+  }
+
   throw new Error(`no such action : ${action.type}`);
 };
 

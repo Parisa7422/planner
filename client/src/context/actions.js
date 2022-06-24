@@ -31,3 +31,6 @@ export const CLEAR_VALUES = "CLEAR_VALUES";
 
 //QUOTES
 export const GET_QUOTES = "GET_QUOTES";
+
+//notes
+export const GET_NOTES = "GET_NOTES";
