@@ -9,12 +9,13 @@ const Notes = () => {
 
   useEffect(() => {
     getNotes();
-  }, [notes]);
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
     createNote();
     clearValues();
+    getNotes();
   };
 
   return (
@@ -34,6 +35,7 @@ const Notes = () => {
         {notes.map((note) => {
           return (
             <div key={note._id} className="note-box">
+              <h3>{note.noteTitle}</h3>
               {note.noteContent}
             </div>
           );
