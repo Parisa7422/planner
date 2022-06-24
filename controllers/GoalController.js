@@ -27,11 +27,17 @@ const getTodos = async (req, res) => {
 
 const updateTodo = async (req, res) => {
   const { id: todoId } = req.params;
-  const update = { done: true };
+
+  let findTodo = Goal.findOne({ _id: todoId });
+  const goals = await findTodo;
+
+  const update = { done: !goals.done };
 
   const updateTodo = await Goal.findOneAndUpdate({ _id: todoId }, update, {
     new: true,
   });
+
+  // console.log(updateTodo.done);
   res.status(200).json({ updateTodo });
 };
 

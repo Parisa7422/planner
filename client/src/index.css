@@ -283,6 +283,7 @@ form {
   color: var(--black);
   list-style: none;
   cursor: pointer;
+  margin-bottom: 3%;
 }
 
 .list-items {
