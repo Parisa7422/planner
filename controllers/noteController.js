@@ -24,7 +24,9 @@ const updateNote = async (req, res) => {
 };
 
 const deleteNote = async (req, res) => {
-  res.send("delet note");
+  const { id: noteId } = req.params;
+  const deleteNote = await Note.findOneAndDelete({ _id: noteId });
+  res.status(200).json({ deleteNote });
 };
 
 export { addNote, getAllNotes, updateNote, deleteNote };

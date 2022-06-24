@@ -18,6 +18,7 @@ const Wrapper = styled.div`
     min-height: 10%;
     width: 30%;
     margin-bottom: 2%;
+    position: relative;
   }
 
   .note-direction {

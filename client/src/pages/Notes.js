@@ -4,8 +4,15 @@ import InputText from "../components/InputText";
 import { useAppContext } from "../context/appContext";
 
 const Notes = () => {
-  const { createNote, noteTitle, noteContent, getNotes, notes, clearValues } =
-    useAppContext();
+  const {
+    createNote,
+    noteTitle,
+    noteContent,
+    getNotes,
+    notes,
+    clearValues,
+    deleteNote,
+  } = useAppContext();
 
   useEffect(() => {
     getNotes();
@@ -15,7 +22,9 @@ const Notes = () => {
     e.preventDefault();
     createNote();
     clearValues();
-    getNotes();
+    setTimeout(() => {
+      getNotes();
+    }, 100);
   };
 
   const handleEdit = (e) => {
@@ -51,6 +60,17 @@ const Notes = () => {
                 name="noteContent"
                 value={note.noteContent}
               />
+              <button
+                className="delete-btn"
+                onClick={() => {
+                  deleteNote(note._id);
+                  setTimeout(() => {
+                    getNotes();
+                  }, 100);
+                }}
+              >
+                delete
+              </button>
             </div>
           );
         })}

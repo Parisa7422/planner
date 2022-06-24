@@ -191,6 +191,15 @@ form {
   outline: none;
 }
 
+.delete-btn {
+  border-radius: 50%;
+  position: absolute;
+  bottom: -12px;
+  right: 5%;
+  cursor: pointer;
+
+}
+
 .create-goal {
   padding: 0;
   width: 80%;

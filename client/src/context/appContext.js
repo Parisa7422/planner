@@ -251,6 +251,14 @@ const AppProvider = ({ children }) => {
       return console.log(error);
     }
   };
+
+  const deleteNote = async (id) => {
+    try {
+      await authFetch.delete(`/notes/${id}`);
+    } catch (error) {
+      return console.log(error);
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -267,6 +275,7 @@ const AppProvider = ({ children }) => {
         getAllQuotes,
         createNote,
         getNotes,
+        deleteNote,
       }}
     >
       {children}
