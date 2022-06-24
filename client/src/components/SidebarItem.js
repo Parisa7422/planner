@@ -30,6 +30,9 @@ const SidebarItem = (props) => {
 
   const handleDelete = (id) => {
     deleteGoal(id);
+    setTimeout(() => {
+      getGoals();
+    }, 50);
   };
 
   // create Goal
@@ -37,6 +40,9 @@ const SidebarItem = (props) => {
     e.preventDefault();
     const title = props.name;
     createGoal({ title });
+    setTimeout(() => {
+      getGoals();
+    }, 50);
     clearValues();
   };
 
