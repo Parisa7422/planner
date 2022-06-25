@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "../context/appContext";
 import InputText from "./InputText";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -29,7 +29,6 @@ const SidebarItem = (props) => {
 
   const handleEdit = (id, done) => {
     updateGoal(id);
-    console.log(done);
   };
 
   const handleDelete = (id) => {
