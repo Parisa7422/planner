@@ -4,7 +4,6 @@ const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--accent-50);
   width: 95%;
   height: 100vh;
   display: flex;
@@ -54,7 +53,8 @@ const Wrapper = styled.div`
   .note-box {
     background-color: var(--accent-200);
     color: white;
-    padding: 5%;
+    padding: 5% 7% 5% 5%;
+
     border-radius: var(--borderRadius);
     position: relative;
   }

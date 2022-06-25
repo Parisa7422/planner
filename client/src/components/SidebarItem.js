@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAppContext } from "../context/appContext";
 import InputText from "./InputText";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 const SidebarItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,11 +86,12 @@ const SidebarItem = (props) => {
                 >
                   {goal.content}
                   <button
+                    className="btn"
                     onClick={() => {
                       handleDelete(goal._id);
                     }}
                   >
-                    d
+                    <DeleteIcon />
                   </button>
                 </li>
               );
@@ -102,9 +105,9 @@ const SidebarItem = (props) => {
             setIsOpen(false);
             clearValues();
           }}
-          className="close-btn"
+          className="btn close-btn"
         >
-          C
+          <CancelIcon />
         </button>
       )}
     </div>

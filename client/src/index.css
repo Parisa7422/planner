@@ -10,6 +10,8 @@
 
 body {
   overflow: hidden;
+  background-color: var(--grey-50);
+
 }
 
 :root {
@@ -184,24 +186,24 @@ form {
   position: absolute;
   bottom: -15px;
   right: 60px;
-  background: var(--btn-green);
-  color: var(--grey-100);
-  border: none;
-  border-radius: 50%;
+  color: var(--secondary-100);
   width: 36px;
   height: 36px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
   outline: none;
 }
 
 .delete-btn {
-  border-radius: 50%;
   position: absolute;
-  bottom: -12px;
-  right: 5%;
-  cursor: pointer;
+  right: 1%;
+  bottom: 5%;
+  color: white;
 
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
 }
 
 .create-goal {
@@ -227,15 +229,8 @@ form {
   position: absolute;
   bottom: -15px;
   right: 5px;
-  background: var(--btn-green);
-  color: var(--grey-100);
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  outline: none;
+  color: var(--secondary-100);
+
 }
 
 .list-item {

@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   right: 0;
   width: 95%;
   height: 100vh;
-  background-color: var(--grey-50);
   display: flex;
   flex-direction: row-reverse;
   .center-items {
