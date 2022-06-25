@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { useAppContext } from "../context/appContext";
 
 const InputText = (props) => {
-  // const [isExpanded, setExpanded] = useState(false);
-  const { handleChange, isExpanded, isExpand } = useAppContext();
+  const { handleChange, openInput, isExpand } = useAppContext();
 
   const handleClick = () => {
-    isExpanded();
+    openInput();
   };
 
   const handleInput = (e) => {
@@ -17,7 +15,12 @@ const InputText = (props) => {
 
   return (
     <div>
-      <form onSubmit={props.onAdd} className={props.formStyle}>
+      <form
+        onSubmit={props.onAdd}
+        autoComplete="off"
+        spellCheck="false"
+        className={props.formStyle}
+      >
         {isExpand && (
           <input
             placeholder="Title"

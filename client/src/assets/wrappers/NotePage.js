@@ -9,6 +9,48 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  .input-container {
+    height: 30%;
+  }
+  .create-note {
+    padding: 0;
+    border: 1px solid var(--secondary-200);
+    border-radius: var(--borderRadius);
+    height: fit-content;
+    width: 20%;
+    position: relative;
+    background-color: var(--white);
+    margin: auto;
+    margin-top: 3%;
+  }
+  .create-note input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--secondary-100);
+    padding: 5% 5%;
+    font-size: 1.2em;
+  }
+
+  .create-note input::placeholder {
+    color: var(--secondary-100);
+  }
+
+  .note-textarea::placeholder {
+    color: var(--secondary-200);
+    font-size: 0.9em;
+  }
+
+  .note-textarea {
+    width: 100%;
+    padding: 5%;
+    border: none;
+    background: transparent;
+    outline: none;
+    resize: none;
+    color: var(--secondary-200);
+    font-size: 1.2em;
+  }
   .note-box {
     background-color: var(--accent-200);
     color: white;
@@ -23,10 +65,15 @@ const Wrapper = styled.div`
     grid-auto-rows: minmax(100px, auto);
     justify-content: center;
     align-items: baseline;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 65%;
     grid-column-gap: 4%;
-    grid-row-gap: 10%;
-    margin: 5%;
-    background-color: brown;
+    grid-row-gap: 2%;
+    margin: 3%;
+    padding: 0 1%;
+    margin-top: 0;
+
     /* display: flex;
     flex-wrap: wrap;
     flex-direction: row;

@@ -12,7 +12,7 @@ const SidebarItem = (props) => {
     createGoal,
     clearValues,
     content,
-    isExpanded,
+    closeInput,
   } = useAppContext();
 
   // Open sidebar item
@@ -46,7 +46,7 @@ const SidebarItem = (props) => {
       getGoals();
     }, 50);
     clearValues();
-    isExpanded();
+    closeInput();
   };
 
   return (

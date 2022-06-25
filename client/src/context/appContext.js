@@ -14,8 +14,8 @@ import {
   GET_QUOTES,
   GET_NOTES,
   EDIT_NOTE,
-  EDIT_GOAL,
-  EXPAND_INPUT,
+  OPEN_INPUT,
+  CLOSE_INPUT,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -135,8 +135,11 @@ const AppProvider = ({ children }) => {
   };
 
   //Expand Input
-  const isExpanded = () => {
-    dispatch({ type: EXPAND_INPUT });
+  const openInput = () => {
+    dispatch({ type: OPEN_INPUT });
+  };
+  const closeInput = () => {
+    dispatch({ type: CLOSE_INPUT });
   };
 
   //Clear values
@@ -283,7 +286,8 @@ const AppProvider = ({ children }) => {
         logoutUser,
         handleChange,
         clearValues,
-        isExpanded,
+        openInput,
+        closeInput,
         createGoal,
         getGoals,
         updateGoal,

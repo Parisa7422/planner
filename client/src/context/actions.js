@@ -17,7 +17,8 @@ export const SETUP_USER_SUCCESS = "SETUP_USER_SUCCESS";
 export const SETUP_USER_ERROR = "SETUP_USER_ERROR";
 
 // Expand input
-export const EXPAND_INPUT = "EXPAND_INPUT";
+export const OPEN_INPUT = "OPEN_INPUT";
+export const CLOSE_INPUT = "CLOSE_INPUT";
 // Logout user
 export const LOGOUT_USER = "LOGOUT_USER";
 

@@ -12,7 +12,7 @@ const Notes = () => {
     notes,
     clearValues,
     deleteNote,
-    isExpanded,
+    closeInput,
   } = useAppContext();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Notes = () => {
     e.preventDefault();
     createNote();
     clearValues();
-    isExpanded();
+    closeInput();
     setTimeout(() => {
       getNotes();
     }, 100);
@@ -37,16 +37,18 @@ const Notes = () => {
 
   return (
     <Wrapper>
-      <InputText
-        placeholder="Add a note ..."
-        name="noteContent"
-        value={noteContent}
-        inputName="noteTitle"
-        inputValue={noteTitle}
-        class="note-textarea"
-        formStyle="create-note"
-        onAdd={onSubmit}
-      />
+      <div className="input-container">
+        <InputText
+          placeholder="Add a note ..."
+          name="noteContent"
+          value={noteContent}
+          inputName="noteTitle"
+          inputValue={noteTitle}
+          class="note-textarea"
+          formStyle="create-note"
+          onAdd={onSubmit}
+        />
+      </div>
 
       <div className="note-container">
         {notes.map((note) => {

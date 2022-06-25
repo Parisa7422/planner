@@ -8,6 +8,10 @@
 
 }
 
+body {
+  overflow: hidden;
+}
+
 :root {
   /* colors */
   --primary-50: #fa4872;
@@ -216,49 +220,6 @@ form {
   outline: none;
   resize: none;
 
-}
-
-.create-note {
-  padding: 0;
-  border: 1px solid var(--secondary-200);
-  border-radius: var(--borderRadius);
-  height: fit-content;
-  position: relative;
-  background-color: var(--white);
-  margin: auto;
-  margin-top: 3%;
-
-}
-
-.create-note input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--secondary-100);
-  padding: 5% 5%;
-  font-size: 1.3em;
-
-
-}
-
-.create-note input::placeholder {
-  color: var(--secondary-100);
-}
-
-.note-textarea::placeholder {
-  color: var(--secondary-200);
-
-}
-
-.note-textarea {
-  width: 100%;
-  padding: 5%;
-  border: none;
-  background: transparent;
-  outline: none;
-  resize: none;
-  color: var(--secondary-200);
-  font-size: 1.2em;
 }
 
 
