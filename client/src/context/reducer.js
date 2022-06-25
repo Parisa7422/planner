@@ -7,11 +7,11 @@ import {
   LOGOUT_USER,
   HANDLE_CHANGE,
   CLEAR_VALUES,
-  ADD_GOAL,
   GET_GOALS,
   GET_QUOTES,
   GET_NOTES,
   EDIT_NOTE,
+  EDIT_GOAL,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -85,9 +85,10 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === ADD_GOAL) {
+  if (action.type === EDIT_GOAL) {
     return {
       ...state,
+      done: action.done.payload,
     };
   }
   if (action.type === GET_GOALS) {

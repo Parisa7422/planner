@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "../context/appContext";
 import InputText from "./InputText";
 
@@ -24,8 +24,9 @@ const SidebarItem = (props) => {
     return title === props.name;
   });
 
-  const handleEdit = (id) => {
+  const handleEdit = (id, done) => {
     updateGoal(id);
+    console.log(done);
   };
 
   const handleDelete = (id) => {
@@ -76,7 +77,7 @@ const SidebarItem = (props) => {
                     textDecoration: goal.done ? "line-through" : "none",
                   }}
                   onClick={() => {
-                    handleEdit(goal._id);
+                    handleEdit(goal._id, goal.done);
                   }}
                 >
                   {goal.content}

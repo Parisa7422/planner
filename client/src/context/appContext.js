@@ -14,6 +14,7 @@ import {
   GET_QUOTES,
   GET_NOTES,
   EDIT_NOTE,
+  EDIT_GOAL,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -170,8 +171,15 @@ const AppProvider = ({ children }) => {
 
   const updateGoal = async (id) => {
     try {
-      const { done } = state;
-      await authFetch.patch(`/goals/${id}`, { done });
+      // const { done } = state;
+      await authFetch.patch(`/goals/${id}`);
+      console.log(id);
+      //   dispatch({
+      //     type: EDIT_GOAL,
+      //     payload: {
+      //       done,
+      //     },
+      //   });
     } catch (error) {
       return console.log(error);
     }

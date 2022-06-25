@@ -20,8 +20,8 @@ export const SETUP_USER_ERROR = "SETUP_USER_ERROR";
 export const LOGOUT_USER = "LOGOUT_USER";
 
 //GOAL
-export const ADD_GOAL = "ADD_GOAL";
 export const GET_GOALS = "GET_GOALS";
+export const EDIT_GOAL = "EDIT_GOAL";
 
 // CHANGE
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
