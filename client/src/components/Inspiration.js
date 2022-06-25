@@ -14,7 +14,7 @@ const Inspiration = () => {
 
   useEffect(() => {
     getRandomQuote();
-    console.log("mahsa");
+    console.log("Invoke random quotes");
   }, [quotes]);
 
   const getRandomQuote = () => {
@@ -28,7 +28,6 @@ const Inspiration = () => {
     } else {
       setRandom(quotes.length - 1);
     }
-    console.log("pree " + random);
   };
 
   const handleNext = () => {
@@ -39,7 +38,6 @@ const Inspiration = () => {
     }
   };
 
-  console.log(random);
   return (
     <Wrapper>
       <img
