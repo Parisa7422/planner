@@ -15,6 +15,7 @@ import {
   GET_NOTES,
   EDIT_NOTE,
   EDIT_GOAL,
+  EXPAND_INPUT,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -37,6 +38,7 @@ const initialState = {
   noteContent: "",
   noteTitle: "",
   notes: [],
+  isExpand: false,
 };
 
 const AppContext = React.createContext();
@@ -130,6 +132,11 @@ const AppProvider = ({ children }) => {
   //handlechange
   const handleChange = ({ name, value }) => {
     dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
+  };
+
+  //Expand Input
+  const isExpanded = () => {
+    dispatch({ type: EXPAND_INPUT });
   };
 
   //Clear values
@@ -276,6 +283,7 @@ const AppProvider = ({ children }) => {
         logoutUser,
         handleChange,
         clearValues,
+        isExpanded,
         createGoal,
         getGoals,
         updateGoal,

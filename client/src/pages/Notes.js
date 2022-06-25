@@ -12,6 +12,7 @@ const Notes = () => {
     notes,
     clearValues,
     deleteNote,
+    isExpanded,
   } = useAppContext();
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const Notes = () => {
     e.preventDefault();
     createNote();
     clearValues();
+    isExpanded();
     setTimeout(() => {
       getNotes();
     }, 100);
@@ -46,20 +48,22 @@ const Notes = () => {
         onAdd={onSubmit}
       />
 
-      <div className="note-direction">
+      <div className="note-container">
         {notes.map((note) => {
           return (
             <div key={note._id} className="note-box" onKeyUp={handleEdit}>
-              <input
+              {/* <input
                 className="note-content"
                 name="noteTitle"
                 value={note.noteTitle}
-              />
-              <input
+              /> */}
+              <h3>{note.noteTitle}</h3>
+              {note.noteContent}
+              {/* <input
                 className="note-content"
                 name="noteContent"
                 value={note.noteContent}
-              />
+              /> */}
               <button
                 className="delete-btn"
                 onClick={() => {

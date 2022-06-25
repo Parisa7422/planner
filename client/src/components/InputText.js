@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useAppContext } from "../context/appContext";
 
 const InputText = (props) => {
-  const [isExpanded, setExpanded] = useState(false);
-  const { handleChange } = useAppContext();
+  // const [isExpanded, setExpanded] = useState(false);
+  const { handleChange, isExpanded, isExpand } = useAppContext();
 
   const handleClick = () => {
-    setExpanded(true);
+    isExpanded();
   };
 
   const handleInput = (e) => {
@@ -18,7 +18,7 @@ const InputText = (props) => {
   return (
     <div>
       <form onSubmit={props.onAdd} className={props.formStyle}>
-        {isExpanded && (
+        {isExpand && (
           <input
             placeholder="Title"
             value={props.inputValue}
@@ -33,10 +33,10 @@ const InputText = (props) => {
           name={props.name}
           className={props.class}
           placeholder={props.placeholder}
-          rows={isExpanded ? 3 : 1}
+          rows={isExpand ? 3 : 1}
           value={props.value}
         />
-        {isExpanded && (
+        {isExpand && (
           <button type="submit" className="form-btn">
             add
           </button>

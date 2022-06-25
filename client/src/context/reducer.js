@@ -12,6 +12,7 @@ import {
   GET_NOTES,
   EDIT_NOTE,
   EDIT_GOAL,
+  EXPAND_INPUT,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -85,6 +86,13 @@ const reducer = (state, action) => {
     };
   }
 
+  if (action.type === EXPAND_INPUT) {
+    const { isExpand } = state;
+    return {
+      ...state,
+      isExpand: !isExpand,
+    };
+  }
   if (action.type === EDIT_GOAL) {
     return {
       ...state,
