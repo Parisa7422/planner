@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "../context/appContext";
-import InputGoals from "./InputGoals";
+import InputText from "./InputText";
 
 const SidebarItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { getGoals, goals, updateGoal, deleteGoal } = useAppContext();
+  const {
+    getGoals,
+    goals,
+    updateGoal,
+    deleteGoal,
+    createGoal,
+    clearValues,
+    content,
+    closeInput,
+  } = useAppContext();
 
   // Open sidebar item
   const handleClick = () => {
@@ -16,13 +25,30 @@ const SidebarItem = (props) => {
     return title === props.name;
   });
 
-  const handleEdit = (id) => {
+  const handleEdit = (id, done) => {
     updateGoal(id);
+    console.log(done);
   };
 
   const handleDelete = (id) => {
     deleteGoal(id);
+    setTimeout(() => {
+      getGoals();
+    }, 50);
   };
+
+  // create Goal
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const title = props.name;
+    createGoal({ title });
+    setTimeout(() => {
+      getGoals();
+    }, 50);
+    clearValues();
+    closeInput();
+  };
+
   return (
     <div
       onClick={handleClick}
@@ -30,7 +56,17 @@ const SidebarItem = (props) => {
       className={`sidebar-btn sidebar-btn${isOpen && "-select"}`}
     >
       {props.title}
-      {isOpen && <InputGoals title={props.name} />}
+      {isOpen && (
+        <InputText
+          placeholder="Add a goal ..."
+          onAdd={onSubmit}
+          name="content"
+          value={content}
+          class="goals-textarea"
+          formStyle="create-goal"
+          visible={{ display: "none" }}
+        />
+      )}
       {isOpen && (
         <div>
           <ul className="list-items">
@@ -43,7 +79,7 @@ const SidebarItem = (props) => {
                     textDecoration: goal.done ? "line-through" : "none",
                   }}
                   onClick={() => {
-                    handleEdit(goal._id);
+                    handleEdit(goal._id, goal.done);
                   }}
                 >
                   {goal.content}
@@ -64,6 +100,7 @@ const SidebarItem = (props) => {
         <button
           onMouseDown={() => {
             setIsOpen(false);
+            clearValues();
           }}
           className="close-btn"
         >

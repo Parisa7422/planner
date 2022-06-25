@@ -16,12 +16,15 @@ export const SETUP_USER_BEGIN = "SETUP_USER_BEGIN";
 export const SETUP_USER_SUCCESS = "SETUP_USER_SUCCESS";
 export const SETUP_USER_ERROR = "SETUP_USER_ERROR";
 
+// Expand input
+export const OPEN_INPUT = "OPEN_INPUT";
+export const CLOSE_INPUT = "CLOSE_INPUT";
 // Logout user
 export const LOGOUT_USER = "LOGOUT_USER";
 
 //GOAL
-export const ADD_GOAL = "ADD_GOAL";
 export const GET_GOALS = "GET_GOALS";
+export const EDIT_GOAL = "EDIT_GOAL";
 
 // CHANGE
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
@@ -31,3 +34,7 @@ export const CLEAR_VALUES = "CLEAR_VALUES";
 
 //QUOTES
 export const GET_QUOTES = "GET_QUOTES";
+
+//notes
+export const GET_NOTES = "GET_NOTES";
+export const EDIT_NOTE = "EDIT_NOTE";

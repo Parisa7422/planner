@@ -7,9 +7,13 @@ import {
   LOGOUT_USER,
   HANDLE_CHANGE,
   CLEAR_VALUES,
-  ADD_GOAL,
   GET_GOALS,
   GET_QUOTES,
+  GET_NOTES,
+  EDIT_NOTE,
+  EDIT_GOAL,
+  OPEN_INPUT,
+  CLOSE_INPUT,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -67,6 +71,8 @@ const reducer = (state, action) => {
   if (action.type === CLEAR_VALUES) {
     const initialState = {
       content: "",
+      noteContent: "",
+      noteTitle: "",
     };
 
     return {
@@ -81,9 +87,22 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === ADD_GOAL) {
+  if (action.type === OPEN_INPUT) {
     return {
       ...state,
+      isExpand: true,
+    };
+  }
+  if (action.type === CLOSE_INPUT) {
+    return {
+      ...state,
+      isExpand: false,
+    };
+  }
+  if (action.type === EDIT_GOAL) {
+    return {
+      ...state,
+      done: action.done.payload,
     };
   }
   if (action.type === GET_GOALS) {
@@ -93,13 +112,28 @@ const reducer = (state, action) => {
     };
   }
 
-  if ((action.type = GET_QUOTES)) {
+  if (action.type === GET_QUOTES) {
     return {
       ...state,
       quotes: action.payload.quotes,
       totalQuotes: action.payload.totalQuotes,
     };
   }
+
+  if (action.type === GET_NOTES) {
+    return {
+      ...state,
+      notes: action.payload.notes,
+    };
+  }
+  if (action.type === EDIT_NOTE) {
+    return {
+      ...state,
+      noteContent: action.payload.noteContent,
+      noteTitle: action.payload.noteTitle,
+    };
+  }
+
   throw new Error(`no such action : ${action.type}`);
 };
 

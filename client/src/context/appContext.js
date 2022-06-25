@@ -9,10 +9,13 @@ import {
   SETUP_USER_ERROR,
   LOGOUT_USER,
   HANDLE_CHANGE,
-  ADD_GOAL,
   GET_GOALS,
   CLEAR_VALUES,
   GET_QUOTES,
+  GET_NOTES,
+  EDIT_NOTE,
+  OPEN_INPUT,
+  CLOSE_INPUT,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -32,6 +35,10 @@ const initialState = {
   editTodoId: "",
   quotes: [],
   totalQuotes: "",
+  noteContent: "",
+  noteTitle: "",
+  notes: [],
+  isExpand: false,
 };
 
 const AppContext = React.createContext();
@@ -127,6 +134,14 @@ const AppProvider = ({ children }) => {
     dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
   };
 
+  //Expand Input
+  const openInput = () => {
+    dispatch({ type: OPEN_INPUT });
+  };
+  const closeInput = () => {
+    dispatch({ type: CLOSE_INPUT });
+  };
+
   //Clear values
   const clearValues = () => {
     dispatch({ type: CLEAR_VALUES });
@@ -142,7 +157,7 @@ const AppProvider = ({ children }) => {
         done,
       });
 
-      dispatch({ type: ADD_GOAL });
+      // dispatch({ type: ADD_GOAL });
     } catch (error) {
       return console.log(error);
     }
@@ -166,8 +181,15 @@ const AppProvider = ({ children }) => {
 
   const updateGoal = async (id) => {
     try {
-      const { done } = state;
-      await authFetch.patch(`/goals/${id}`, { done });
+      // const { done } = state;
+      await authFetch.patch(`/goals/${id}`);
+      console.log(id);
+      //   dispatch({
+      //     type: EDIT_GOAL,
+      //     payload: {
+      //       done,
+      //     },
+      //   });
     } catch (error) {
       return console.log(error);
     }
@@ -181,6 +203,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // Quotes
   const getAllQuotes = async () => {
     try {
       const { data } = await authFetch.get("/quotes");
@@ -197,6 +220,63 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // Notes
+
+  const createNote = async () => {
+    try {
+      const { noteContent, noteTitle } = state;
+      await authFetch.post("/notes", {
+        noteContent,
+        noteTitle,
+      });
+    } catch (error) {
+      return console.log("error");
+    }
+  };
+
+  const getNotes = async () => {
+    try {
+      const { data } = await authFetch.get("/notes");
+      const { notes } = data;
+      // console.log(notes);
+
+      dispatch({
+        type: GET_NOTES,
+        payload: {
+          notes,
+        },
+      });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
+  const updateNote = async (id) => {
+    try {
+      const { noteTitle, noteContent } = state;
+      await authFetch.patch(`/notes/${id}`, {
+        noteContent,
+        noteTitle,
+      });
+      dispatch({
+        type: EDIT_NOTE,
+        payload: {
+          noteContent,
+          noteTitle,
+        },
+      });
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
+  const deleteNote = async (id) => {
+    try {
+      await authFetch.delete(`/notes/${id}`);
+    } catch (error) {
+      return console.log(error);
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -206,11 +286,16 @@ const AppProvider = ({ children }) => {
         logoutUser,
         handleChange,
         clearValues,
+        openInput,
+        closeInput,
         createGoal,
         getGoals,
         updateGoal,
         deleteGoal,
         getAllQuotes,
+        createNote,
+        getNotes,
+        deleteNote,
       }}
     >
       {children}

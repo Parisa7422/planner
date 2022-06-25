@@ -8,6 +8,10 @@
 
 }
 
+body {
+  overflow: hidden;
+}
+
 :root {
   /* colors */
   --primary-50: #fa4872;
@@ -191,12 +195,13 @@ form {
   outline: none;
 }
 
-.goals-textarea {
-  width: 100%;
-  border: none;
-  padding: 4px;
-  outline: none;
-  resize: none;
+.delete-btn {
+  border-radius: 50%;
+  position: absolute;
+  bottom: -12px;
+  right: 5%;
+  cursor: pointer;
+
 }
 
 .create-goal {
@@ -207,6 +212,16 @@ form {
   margin: auto;
   position: relative;
 }
+
+.goals-textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  resize: none;
+
+}
+
 
 .form-btn {
   position: absolute;
@@ -229,6 +244,7 @@ form {
   color: var(--black);
   list-style: none;
   cursor: pointer;
+  margin-bottom: 3%;
 }
 
 .list-items {
