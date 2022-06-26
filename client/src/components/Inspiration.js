@@ -14,7 +14,6 @@ const Inspiration = () => {
 
   useEffect(() => {
     getRandomQuote();
-    console.log("Invoke random quotes");
   }, [quotes]);
 
   const getRandomQuote = () => {
