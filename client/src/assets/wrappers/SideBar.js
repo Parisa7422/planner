@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   float: right;
   background-color: var(--white);
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);
   width: 15%;
   height: 100vh;
   .profile {
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     flex: 1;
     margin: auto;
-    padding: 10% 0 45%;
+    padding: 20% 0 95%;
     width: 70%;
     position: relative;
   }

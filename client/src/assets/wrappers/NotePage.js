@@ -13,12 +13,13 @@ const Wrapper = styled.div`
   }
   .create-note {
     padding: 0;
-    border: 1px solid var(--secondary-200);
+    /* border: 1px solid var(--secondary-200); */
     border-radius: var(--borderRadius);
     height: fit-content;
     width: 20%;
     position: relative;
     background-color: var(--white);
+    box-shadow: 0 2px 5px #ccc;
     margin: auto;
     margin-top: 3%;
   }

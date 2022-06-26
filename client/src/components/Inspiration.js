@@ -46,7 +46,9 @@ const Inspiration = () => {
         onClick={handlePrevious}
         alt="previous icon"
       />
+
       <div className="inspire-bg"></div>
+
       {quotes[random] && (
         <h4 className="inspire-text">{quotes[random].text}</h4>
       )}

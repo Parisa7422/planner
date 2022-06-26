@@ -57,17 +57,20 @@ const SidebarItem = (props) => {
       className={`sidebar-btn sidebar-btn${isOpen && "-select"}`}
     >
       {props.title}
-      {isOpen && (
-        <InputText
-          placeholder="Add a goal ..."
-          onAdd={onSubmit}
-          name="content"
-          value={content}
-          class="goals-textarea"
-          formStyle="create-goal"
-          visible={{ display: "none" }}
-        />
-      )}
+      <div className="goal-input-container">
+        {" "}
+        {isOpen && (
+          <InputText
+            placeholder="Add a goal ..."
+            onAdd={onSubmit}
+            name="content"
+            value={content}
+            class="goals-textarea"
+            formStyle="create-goal"
+            visible={{ display: "none" }}
+          />
+        )}
+      </div>
       {isOpen && (
         <div>
           <ul className="list-items">
@@ -85,7 +88,7 @@ const SidebarItem = (props) => {
                 >
                   {goal.content}
                   <button
-                    className="btn"
+                    className="icon-btn"
                     onClick={() => {
                       handleDelete(goal._id);
                     }}
@@ -104,7 +107,7 @@ const SidebarItem = (props) => {
             setIsOpen(false);
             clearValues();
           }}
-          className="btn close-btn"
+          className="icon-btn close-btn"
         >
           <CancelIcon />
         </button>

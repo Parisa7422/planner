@@ -37,11 +37,11 @@ const InputText = (props) => {
           name={props.name}
           className={props.class}
           placeholder={props.placeholder}
-          rows={isExpand ? 3 : 1}
+          rows={isExpand ? 2 : 1}
           value={props.value}
         />
         {isExpand && (
-          <button type="submit" className="btn form-btn">
+          <button type="submit" className="icon-btn form-btn">
             <AddCircleIcon />
           </button>
         )}

@@ -4,13 +4,13 @@ const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 95%;
+  width: 96%;
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
   .center-items {
     margin: auto;
-    width: 75%;
+    width: 73%;
     height: 100vh;
   }
 

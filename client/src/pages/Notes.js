@@ -70,7 +70,7 @@ const Notes = () => {
                 value={note.noteContent}
               /> */}
               <button
-                className="btn delete-btn"
+                className="icon-btn delete-btn"
                 onClick={() => {
                   deleteNote(note._id);
                   setTimeout(() => {
