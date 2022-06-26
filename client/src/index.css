@@ -317,7 +317,7 @@ form {
   height: 30px;
   color: var(--grey-300);
   border-radius: var(--borderRadius);
-  border: solid var(--grey-300) 2px;
+  border: solid var(--grey-300) 1px;
   line-height: 1;
   cursor: pointer;
 }

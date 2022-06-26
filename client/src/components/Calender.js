@@ -1,13 +1,14 @@
 import Wrapper from "../assets/wrappers/CalenderBox";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const Calender = () => {
+const Calender = (props) => {
   //First day of CURRENT MONTH
   function getFirstDayOfMonth(year, month) {
     return new Date(year, month, 1);
   }
 
-  const date = new Date();
+  const date = new Date(`${props.month} 17, 2022 03:24:00`);
+  console.log(date);
 
   const firstDayCurrentMonth = getFirstDayOfMonth(
     date.getFullYear(),
@@ -30,8 +31,8 @@ const Calender = () => {
   const daysOftheMonth = String(lastDayCurrentMonth).slice(8, 10);
   const numberOfDays = parseInt(daysOftheMonth);
 
-  console.log("first day of week " + startTheWeek);
-  console.log("days of the month " + numberOfDays);
+  // console.log("first day of week " + startTheWeek);
+  // console.log("days of the month " + numberOfDays);
 
   // Create the arry
   const createArray = () => {
@@ -45,7 +46,12 @@ const Calender = () => {
 
   // get Today date
   const today = new Date().getDate();
-  console.log(today);
+  // console.log(today);
+
+  // //get month Long
+  // const monthLong = date.toLocaleString("en-US", { month: "long" });
+
+  // console.log(monthLong);
   return (
     <Wrapper>
       {days.map((day) => {

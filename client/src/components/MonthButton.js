@@ -1,4 +1,4 @@
-const MonthButton = () => {
+const MonthButton = (props) => {
   const monthNames = [
     "January",
     "February",
@@ -22,12 +22,16 @@ const MonthButton = () => {
   return (
     <div className="month-buttons">
       {monthNames.map((month, index) => {
-        return month === getMonth() ? (
-          <button key={index} className="month-btn-selected">
-            {month}
-          </button>
-        ) : (
-          <button key={index} className="month-btn">
+        return (
+          <button
+            onClick={() => {
+              props.handleClick(month);
+            }}
+            key={index}
+            className={
+              month === getMonth() ? "month-btn-selected" : "month-btn"
+            }
+          >
             {month}
           </button>
         );
