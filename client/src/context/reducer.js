@@ -116,7 +116,6 @@ const reducer = (state, action) => {
     return {
       ...state,
       quotes: action.payload.quotes,
-      totalQuotes: action.payload.totalQuotes,
     };
   }
 

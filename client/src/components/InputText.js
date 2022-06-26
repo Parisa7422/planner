@@ -1,4 +1,5 @@
 import { useAppContext } from "../context/appContext";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const InputText = (props) => {
   const { handleChange, openInput, isExpand } = useAppContext();
@@ -36,12 +37,12 @@ const InputText = (props) => {
           name={props.name}
           className={props.class}
           placeholder={props.placeholder}
-          rows={isExpand ? 3 : 1}
+          rows={isExpand ? 2 : 1}
           value={props.value}
         />
         {isExpand && (
-          <button type="submit" className="form-btn">
-            add
+          <button type="submit" className="icon-btn form-btn">
+            <AddCircleIcon />
           </button>
         )}
       </form>

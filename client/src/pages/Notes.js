@@ -3,6 +3,9 @@ import Wrapper from "../assets/wrappers/NotePage";
 import InputText from "../components/InputText";
 import { useAppContext } from "../context/appContext";
 
+//Reac icons
+import DeleteIcon from "@mui/icons-material/Delete";
+
 const Notes = () => {
   const {
     createNote,
@@ -67,7 +70,7 @@ const Notes = () => {
                 value={note.noteContent}
               /> */}
               <button
-                className="delete-btn"
+                className="icon-btn delete-btn"
                 onClick={() => {
                   deleteNote(note._id);
                   setTimeout(() => {
@@ -75,7 +78,7 @@ const Notes = () => {
                   }, 100);
                 }}
               >
-                delete
+                <DeleteIcon />
               </button>
             </div>
           );

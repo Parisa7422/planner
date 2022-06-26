@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/appContext";
 import InputText from "./InputText";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 const SidebarItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +29,6 @@ const SidebarItem = (props) => {
 
   const handleEdit = (id, done) => {
     updateGoal(id);
-    console.log(done);
   };
 
   const handleDelete = (id) => {
@@ -56,17 +57,20 @@ const SidebarItem = (props) => {
       className={`sidebar-btn sidebar-btn${isOpen && "-select"}`}
     >
       {props.title}
-      {isOpen && (
-        <InputText
-          placeholder="Add a goal ..."
-          onAdd={onSubmit}
-          name="content"
-          value={content}
-          class="goals-textarea"
-          formStyle="create-goal"
-          visible={{ display: "none" }}
-        />
-      )}
+      <div className="goal-input-container">
+        {" "}
+        {isOpen && (
+          <InputText
+            placeholder="Add a goal ..."
+            onAdd={onSubmit}
+            name="content"
+            value={content}
+            class="goals-textarea"
+            formStyle="create-goal"
+            visible={{ display: "none" }}
+          />
+        )}
+      </div>
       {isOpen && (
         <div>
           <ul className="list-items">
@@ -84,11 +88,12 @@ const SidebarItem = (props) => {
                 >
                   {goal.content}
                   <button
+                    className="icon-btn"
                     onClick={() => {
                       handleDelete(goal._id);
                     }}
                   >
-                    d
+                    <DeleteIcon />
                   </button>
                 </li>
               );
@@ -102,9 +107,9 @@ const SidebarItem = (props) => {
             setIsOpen(false);
             clearValues();
           }}
-          className="close-btn"
+          className="icon-btn close-btn"
         >
-          C
+          <CancelIcon />
         </button>
       )}
     </div>

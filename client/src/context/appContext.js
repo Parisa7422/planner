@@ -34,7 +34,6 @@ const initialState = {
   goals: [],
   editTodoId: "",
   quotes: [],
-  totalQuotes: "",
   noteContent: "",
   noteTitle: "",
   notes: [],
@@ -181,15 +180,18 @@ const AppProvider = ({ children }) => {
 
   const updateGoal = async (id) => {
     try {
-      // const { done } = state;
-      await authFetch.patch(`/goals/${id}`);
-      console.log(id);
-      //   dispatch({
-      //     type: EDIT_GOAL,
-      //     payload: {
-      //       done,
-      //     },
-      //   });
+      const { goals } = state;
+      var response = await authFetch.patch(`/goals/${id}`);
+
+      const goal = goals.find((goal) => {
+        return goal._id === id;
+      });
+      goal.done = response.data.updateTodo.done;
+      goal._id = response.data.updateTodo._id;
+      goal.content = response.data.updateTodo.content;
+      goal.title = response.data.updateTodo.title;
+
+      dispatch({ type: GET_GOALS, payload: { goals } });
     } catch (error) {
       return console.log(error);
     }
@@ -207,12 +209,11 @@ const AppProvider = ({ children }) => {
   const getAllQuotes = async () => {
     try {
       const { data } = await authFetch.get("/quotes");
-      const { quotes, totalQuotes } = data;
+      const { quotes } = data;
       dispatch({
         type: GET_QUOTES,
         payload: {
           quotes,
-          totalQuotes,
         },
       });
     } catch (error) {
