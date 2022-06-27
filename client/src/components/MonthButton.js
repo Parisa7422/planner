@@ -1,4 +1,6 @@
-const MonthButton = () => {
+import { useState } from "react";
+
+const MonthButton = (props) => {
   const monthNames = [
     "January",
     "February",
@@ -14,6 +16,7 @@ const MonthButton = () => {
     "December",
   ];
 
+  // Get current month for style the background
   const getMonth = () => {
     const today = new Date();
     return today.toLocaleString("en-US", { month: "long" });
@@ -22,12 +25,14 @@ const MonthButton = () => {
   return (
     <div className="month-buttons">
       {monthNames.map((month, index) => {
-        return month === getMonth() ? (
-          <button key={index} className="month-btn-selected">
-            {month}
-          </button>
-        ) : (
-          <button key={index} className="month-btn">
+        return (
+          <button
+            onClick={() => {
+              props.handleClick(month);
+            }}
+            key={index}
+            className={month === getMonth() ? "month-btn-default" : "month-btn"}
+          >
             {month}
           </button>
         );

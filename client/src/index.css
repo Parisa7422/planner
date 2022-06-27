@@ -317,15 +317,19 @@ form {
   height: 30px;
   color: var(--grey-300);
   border-radius: var(--borderRadius);
-  border: solid var(--grey-300) 2px;
+  border: solid var(--grey-300) 1px;
   line-height: 1;
   cursor: pointer;
 }
 
-.month-btn-selected {
+.month-btn-default {
   background-color: var(--btn-green);
   border: none;
   color: var(--white);
   border-radius: var(--borderRadius);
   cursor: pointer;
+}
+
+.month-btn-selecet {
+  background-color: #80253a;
 }
