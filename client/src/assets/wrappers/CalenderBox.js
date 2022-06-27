@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 80%;
-  height: 300px;
+  width: 70%;
+  height: 350px;
   margin-right: auto;
-  margin-top: 5%;
   display: grid;
   grid-template-columns: repeat(7, 35px);
-  grid-template-rows: 60px repeat(6, 35px);
+  grid-template-rows: 55px repeat(6, 35px);
   /* gap: 6%; */
-  column-gap: 8%;
+  column-gap: 9%;
   row-gap: 4%;
   text-align: center;
   .day {

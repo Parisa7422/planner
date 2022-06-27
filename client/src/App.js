@@ -20,7 +20,14 @@ function App() {
           }
         />
         <Route path="/register" element={<Register />} />
-        <Route path="/notes" element={<Notes />} />
+        <Route
+          path="/notes"
+          element={
+            <ProtectedRoute>
+              <Notes />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/landing" element={<Landing />} />
         <Route path="/contact-us" element={<h2>Contact us</h2>} />
         <Route path="/about-us" element={<h2>About us</h2>} />

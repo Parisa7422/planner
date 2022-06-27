@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 95%;
+  width: 96%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
     background-color: var(--accent-200);
     color: white;
     padding: 5% 7% 5% 5%;
-
+    box-shadow: 0 2px 3px var(--grey-300);
     border-radius: var(--borderRadius);
     position: relative;
   }
@@ -70,7 +70,7 @@ const Wrapper = styled.div`
     overflow-y: scroll;
     height: 65%;
     grid-column-gap: 4%;
-    grid-row-gap: 2%;
+    grid-row-gap: 1%;
     margin: 3%;
     padding: 0 1%;
     margin-top: 0;
