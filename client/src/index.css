@@ -346,6 +346,7 @@ form {
 
 .goal-progressbar img {
   width: 80%;
+
 }
 
 .backward-img {
@@ -363,8 +364,8 @@ form {
   border: 1px solid var(--grey-300);
   border-radius: var(--borderRadius);
   width: 100%;
-  margin-top: 9%;
-  flex: 1;
+  height: 5.5%;
+  margin-top: auto;
   position: relative;
 }
 
@@ -372,10 +373,12 @@ form {
   background-color: var(--primary-200);
   color: var(--white);
   text-align: center;
+  margin: auto;
   position: absolute;
   bottom: 0;
   left: 0;
-
+  transform: scaleX(1.005);
+  height: 100%;
   border-radius: var(--borderRadius);
 
 }

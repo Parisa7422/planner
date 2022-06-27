@@ -47,10 +47,11 @@ const Inspiration = () => {
       />
 
       <div className="inspire-bg"></div>
-
-      {quotes[random] && (
-        <h4 className="inspire-text">{quotes[random].text}</h4>
-      )}
+      <div className="text-container">
+        {quotes[random] && (
+          <h4 className="inspire-text">{quotes[random].text}</h4>
+        )}
+      </div>
       <img
         className="next-icon icon"
         src={nextIcon}
