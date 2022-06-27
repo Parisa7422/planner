@@ -1,14 +1,27 @@
+import { useEffect, useState } from "react";
 import Wrapper from "../assets/wrappers/CalenderBox";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const Calender = (props) => {
+  useEffect(() => {
+    getSelectedMonth();
+    //  console.log("props  after use Effect: " + props.month);
+  }, [props.month]);
   //First day of CURRENT MONTH
   function getFirstDayOfMonth(year, month) {
     return new Date(year, month, 1);
   }
 
-  const date = new Date(`${props.month} 17, 2022 03:24:00`);
-  console.log(date);
+  const getSelectedMonth = () => {
+    let currentDate = new Date();
+    if (props.month) {
+      currentDate = new Date(`${props.month} 17, 2022 03:24:00`);
+    }
+    return currentDate;
+  };
+
+  const date = getSelectedMonth();
+  //console.log(date);
 
   const firstDayCurrentMonth = getFirstDayOfMonth(
     date.getFullYear(),
@@ -48,10 +61,11 @@ const Calender = (props) => {
   const today = new Date().getDate();
   // console.log(today);
 
-  // //get month Long
-  // const monthLong = date.toLocaleString("en-US", { month: "long" });
+  //get month Long
+  const currentMonth = new Date();
+  const monthLong = currentMonth.toLocaleString("en-US", { month: "long" });
 
-  // console.log(monthLong);
+  console.log("current month: " + monthLong);
   return (
     <Wrapper>
       {days.map((day) => {
@@ -66,7 +80,12 @@ const Calender = (props) => {
         return (
           <div
             key={month}
-            className={index + 1 === today ? "days select" : "days"}
+            className={
+              (index + 1 === today) &
+              (!props.month || props.month === monthLong)
+                ? "days select"
+                : "days"
+            }
           >
             {month}
           </div>

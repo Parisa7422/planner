@@ -322,10 +322,14 @@ form {
   cursor: pointer;
 }
 
-.month-btn-selected {
+.month-btn-default {
   background-color: var(--btn-green);
   border: none;
   color: var(--white);
   border-radius: var(--borderRadius);
   cursor: pointer;
+}
+
+.month-btn-selecet {
+  background-color: #80253a;
 }
