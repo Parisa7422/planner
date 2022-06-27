@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 96%;
+  width: 95%;
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;

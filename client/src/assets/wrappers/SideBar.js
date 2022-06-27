@@ -9,8 +9,9 @@ const Wrapper = styled.div`
   width: 15%;
   height: 100vh;
   .profile {
-    margin: 25% 25% 25%;
-    height: 15%;
+    aspect-ratio: 1/1;
+    width: 50%;
+    margin: 30% auto;
     background-color: antiquewhite;
     border-radius: 50%;
     text-align: center;
@@ -24,6 +25,13 @@ const Wrapper = styled.div`
     padding: 20% 0 95%;
     width: 70%;
     position: relative;
+  }
+
+  @media (max-width: 1200px) {
+    width: 20%;
+  }
+  @media (max-width: 900px) {
+    display: none;
   }
 `;
 

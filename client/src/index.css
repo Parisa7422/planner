@@ -64,6 +64,11 @@ p {
   color: #fff;
 }
 
+/* Medium Screen */
+.month-container-m {
+  display: none;
+}
+
 /* Background Image  */
 .background-img {
   background: url(./assets/images/landing-bg-img.jpg);
@@ -303,6 +308,8 @@ form {
 }
 
 /* Month button */
+
+
 .month-buttons {
   display: flex;
   margin-top: 5%;
@@ -342,10 +349,12 @@ form {
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-left: 4%;
 }
 
 .goal-progressbar img {
-  width: 80%;
+  width: 92%;
+  margin: 0 auto;
 
 }
 
@@ -380,5 +389,53 @@ form {
   transform: scaleX(1.005);
   height: 100%;
   border-radius: var(--borderRadius);
+
+}
+
+@media (max-width: 1200px) {
+
+  /* Month Button Component Style */
+  .month-buttons {
+    display: none;
+  }
+
+  .month-container-m {
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    width: 60%;
+    margin: 5% auto 0;
+    align-items: center;
+  }
+
+  .btn-m {
+    cursor: pointer;
+    padding: 1%;
+    border-radius: var(--borderRadius);
+    border: 1px solid var(--grey-300);
+    color: var(--primary-100);
+  }
+
+  .month {
+    color: var(--grey-300);
+    background: var(--grey-100);
+    width: 30%;
+    padding: 2%;
+    text-align: center;
+    cursor: auto;
+  }
+
+  .this-month {
+    background-color: var(--btn-green);
+    border: none;
+    color: var(--white);
+  }
+
+
+  /* Progress bar Section style */
+  .goal-progressbar {
+    width: 40%;
+    margin-left: 0;
+  }
 
 }
