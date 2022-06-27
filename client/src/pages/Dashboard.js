@@ -3,7 +3,9 @@ import Inspiration from "../components/Inspiration";
 import RightSideBar from "../components/RightSideBar";
 import MonthButton from "../components/MonthButton";
 import Calender from "../components/Calender";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import GoalProgress from "../components/GoalProgress";
+import { useAppContext } from "../context/appContext";
 
 const Dashboard = () => {
   const [selectedMonth, setMonth] = useState("");
@@ -21,6 +23,7 @@ const Dashboard = () => {
         <MonthButton handleClick={handleClick} />
         <div className="flex-row">
           <Calender month={selectedMonth} />
+          <GoalProgress />
         </div>
       </div>
     </Wrapper>

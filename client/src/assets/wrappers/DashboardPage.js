@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   .flex-row {
     display: flex;
     flex-direction: row;
+    margin-top: 5%;
   }
 `;
 
