@@ -19,6 +19,16 @@ const Wrapper = styled.div`
     flex-direction: row;
     margin-top: 5%;
   }
+
+  @media (max-width: 900px) {
+    width: 80%;
+    margin-top: 2%;
+    margin-right: 8%;
+    float: left;
+    .center-items {
+      width: 100%;
+    }
+  }
 `;
 
 export default Wrapper;

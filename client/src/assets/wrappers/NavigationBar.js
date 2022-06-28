@@ -31,8 +31,7 @@ const Wrapper = styled.nav`
     visibility: hidden;
   }
 
-  @media (max-width: 1200px) {
-    visibility: hidden;
+  @media (max-width: 900px) {
   }
 `;
 
