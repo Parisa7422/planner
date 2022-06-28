@@ -32,6 +32,10 @@ const Wrapper = styled.div`
     border: none;
     color: var(--white);
   }
+  @media (max-width: 1200px) {
+    width: 60%;
+    column-gap: 5%;
+  }
 `;
 
 export default Wrapper;

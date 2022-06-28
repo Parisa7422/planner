@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 96%;
+  width: 95%;
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -18,6 +18,16 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     margin-top: 5%;
+  }
+
+  @media (max-width: 900px) {
+    width: 80%;
+    margin-top: 2%;
+    margin-right: 8%;
+    float: left;
+    .center-items {
+      width: 100%;
+    }
   }
 `;
 
