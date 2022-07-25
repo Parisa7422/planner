@@ -14,6 +14,7 @@ import {
   EDIT_GOAL,
   OPEN_INPUT,
   CLOSE_INPUT,
+  GET_PERCENTAGE,
 } from "./actions";
 import { initialState } from "./appContext";
 const reducer = (state, action) => {
@@ -109,6 +110,12 @@ const reducer = (state, action) => {
     return {
       ...state,
       goals: action.payload.goals,
+    };
+  }
+  if (action.type === GET_PERCENTAGE) {
+    return {
+      ...state,
+      percentage: action.payload.percentage,
     };
   }
 

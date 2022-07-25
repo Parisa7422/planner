@@ -108,12 +108,12 @@ const Register = () => {
           <button type="submit" className="login-btn btn" disabled={isLoading}>
             {users.isMember ? "Log in" : "Register"}
           </button>
-          {users.isMember && (
+          {/* {users.isMember && (
             <button className="btn gmail-btn">Log in with google</button>
           )}
           {users.isMember && (
             <button className="btn facebook-btn">Log In with facebook</button>
-          )}
+          )} */}
 
           <p>
             {users.isMember

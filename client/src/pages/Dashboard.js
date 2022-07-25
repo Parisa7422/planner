@@ -9,6 +9,7 @@ import { useAppContext } from "../context/appContext";
 
 const Dashboard = () => {
   const [selectedMonth, setMonth] = useState("");
+
   //get index of the selected month from MonthButton component
   const handleClick = (monthName) => {
     setMonth(monthName);
