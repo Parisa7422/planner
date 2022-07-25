@@ -12,9 +12,11 @@ const SidebarItem = (props) => {
     updateGoal,
     deleteGoal,
     createGoal,
+    getPercentage,
     clearValues,
     content,
     closeInput,
+    percentage,
   } = useAppContext();
 
   // Open sidebar item

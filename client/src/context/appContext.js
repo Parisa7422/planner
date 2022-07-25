@@ -16,6 +16,7 @@ import {
   EDIT_NOTE,
   OPEN_INPUT,
   CLOSE_INPUT,
+  GET_PERCENTAGE,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -32,6 +33,7 @@ const initialState = {
   content: "",
   done: false,
   goals: [],
+  percentage: 0,
   editTodoId: "",
   quotes: [],
   noteContent: "",
@@ -149,17 +151,33 @@ const AppProvider = ({ children }) => {
   //Goal
   const createGoal = async ({ title }) => {
     try {
-      const { content, done } = state;
+      const { content, done, percentage } = state;
       await authFetch.post("/goals/add-todo", {
         title,
         content,
         done,
       });
 
+      dispatch({ type: GET_PERCENTAGE, payload: percentage });
       // dispatch({ type: ADD_GOAL });
     } catch (error) {
       return console.log(error);
     }
+  };
+  const getPercentage = async () => {
+    const { goals } = state;
+    console.log(goals.length);
+    let count = 0;
+    for (let i = 0; i < goals.length; i++) {
+      if (goals[i].done === true) {
+        count++;
+      }
+    }
+
+    const percentage = Math.floor((count * 100) / goals.length);
+    dispatch({ type: GET_PERCENTAGE, payload: { percentage } });
+    console.log("goals: " + goals.length);
+    console.log("percantage is: " + percentage);
   };
 
   const getGoals = async () => {
@@ -173,6 +191,7 @@ const AppProvider = ({ children }) => {
           goals,
         },
       });
+      getPercentage();
     } catch (error) {
       logoutUser();
     }
@@ -195,11 +214,14 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       return console.log(error);
     }
+    getPercentage();
   };
 
   const deleteGoal = async (id) => {
     try {
+      const { percentage } = state;
       await authFetch.delete(`goals/${id}`);
+      dispatch({ type: GET_PERCENTAGE, payload: percentage });
     } catch (error) {
       return console.log(error);
     }
@@ -293,6 +315,7 @@ const AppProvider = ({ children }) => {
         getGoals,
         updateGoal,
         deleteGoal,
+        getPercentage,
         getAllQuotes,
         createNote,
         getNotes,
