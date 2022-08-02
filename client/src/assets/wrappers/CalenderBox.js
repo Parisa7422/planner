@@ -36,6 +36,21 @@ const Wrapper = styled.div`
     width: 60%;
     column-gap: 5%;
   }
+
+  @media (max-width: 780px) {
+    width: 100%;
+    justify-content: center;
+  }
+  @media (max-width: 500px) {
+    margin-top: 20%;
+    grid-template-columns: repeat(7, 28px);
+    grid-template-rows: 40px repeat(6, 28px);
+    column-gap: 9%;
+
+    .day {
+      font-size: 1em;
+    }
+  }
 `;
 
 export default Wrapper;

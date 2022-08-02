@@ -26,12 +26,29 @@ const Wrapper = styled.div`
     width: 70%;
     position: relative;
   }
+  .sidebar-menu {
+    visibility: hidden;
+  }
 
   @media (max-width: 1200px) {
     width: 20%;
   }
   @media (max-width: 900px) {
-    display: none;
+    /* display: none; */
+
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    width: 0;
+
+    .sidebar-menu {
+      visibility: visible;
+      position: absolute;
+      cursor: pointer;
+      right: 0;
+      top: 10px;
+    }
   }
 `;
 

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 import Notes from "./pages/Notes";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         />
         <Route path="/landing" element={<Landing />} />
         <Route path="/contact-us" element={<h2>Contact us</h2>} />
-        <Route path="/about-us" element={<h2>About us</h2>} />
+        <Route path="/about-us" element={<About />} />
         <Route path="*" element={<h2>Error</h2>} />
       </Routes>
     </BrowserRouter>

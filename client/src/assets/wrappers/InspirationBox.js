@@ -42,5 +42,15 @@ const Wrapper = styled.div`
       padding: 0 10%;
     }
   }
+
+  @media (max-width: 500px) {
+    margin-top: 15%;
+    position: absolute;
+    right: 1%;
+
+    .inspire-text {
+      font-size: 0.8em;
+    }
+  }
 `;
 export default Wrapper;
