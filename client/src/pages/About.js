@@ -1,4 +1,11 @@
 import Wrapper from "../assets/wrappers/AboutPage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faInstagram,
+  faTelegram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const About = () => {
   return (
@@ -25,25 +32,24 @@ const About = () => {
         <br /> I hope I can help you to achieve your goals. <br />
         And if you have any suggestions I am glad to hear them with me ❤️
       </div>
-      <div className="social-links">
-        <ul class="social-links">
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/parisa-taheri-a6688a13b/">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://github.com/Parisa7422">
-              <i class="fab fa-brands fa-github"></i>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://www.instagram.com/parisa7422/?hl=en">
-              <i class="fab fa-brands fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+
+      <ul class="social-links">
+        <li class="social-item">
+          <a href="https://www.linkedin.com/in/parisa-taheri-a6688a13b/">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+        </li>
+        <li class="social-item">
+          <a href="https://t.me/parisaa7422">
+            <FontAwesomeIcon icon={faTelegram} />
+          </a>
+        </li>
+        <li class="social-item">
+          <a href="https://www.instagram.com/parisa7422/?hl=en">
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+        </li>
+      </ul>
     </Wrapper>
   );
 };

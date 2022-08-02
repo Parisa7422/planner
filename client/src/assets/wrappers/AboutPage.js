@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  padding: 8% 15%;
+  padding: 4% 15%;
   background-color: var(--accent-50);
   width: calc(100% - 50px);
   height: 100%;
@@ -21,16 +21,53 @@ const Wrapper = styled.div`
   .bold-text {
     color: var(--secondary-100);
   }
+  .social-links {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    align-items: center;
+    margin: 2% auto;
+  }
+
+  .social-item {
+    text-decoration: none;
+    list-style-type: none;
+    color: var(--primary-100);
+    font-size: 2em;
+  }
+  .social-item :visited {
+    color: var(--primary-100);
+  }
+  .social-item :hover {
+    color: var(--primary-50);
+  }
+  .social-item :visited {
+    color: var(--primary-200);
+  }
+
   @media (max-width: 1024px) {
     font-size: 0.88em;
   }
-  @media (max-width: 740px) {
-    padding: 3% 8%;
+  @media (max-width: 1000px) {
+    .social-links {
+      width: 30%;
+    }
   }
-  @media (max-width: 500px) {
-    padding: 6% 8%;
+  @media (max-width: 765px) {
+    padding: 3% 8%;
+    line-height: normal;
+  }
+  @media (max-width: 635px) {
+    padding: 3% 8%;
+
     .about-text {
       line-height: normal;
+    }
+  }
+  @media (max-width: 550px) {
+    .social-links {
+      width: 50%;
+      margin-top: 5%;
     }
   }
 
