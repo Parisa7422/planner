@@ -26,9 +26,9 @@ const Navbar = () => {
         >
           <img src={note} alt="icon" />
         </Link>
-        <Link className="link-item" to="/contact-us">
+        {/* <Link className="link-item" to="/contact-us">
           <img src={calender} alt="icon" />
-        </Link>
+        </Link> */}
         <Link className="link-item" to="/about-us">
           <img src={about} alt="icon" />
         </Link>

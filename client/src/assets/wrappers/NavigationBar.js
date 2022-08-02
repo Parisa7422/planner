@@ -5,7 +5,7 @@ const Wrapper = styled.nav`
   flex-direction: column;
   background-color: var(--primary-100);
   box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);
-  width: 5%;
+  width: 50px;
   height: 100vh;
 
   .logo-center {
@@ -13,12 +13,11 @@ const Wrapper = styled.nav`
   }
 
   .link-items {
-    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 60%;
-    line-height: 2;
+    line-height: 3;
     margin: auto;
   }
 

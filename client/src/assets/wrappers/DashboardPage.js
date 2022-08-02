@@ -29,6 +29,18 @@ const Wrapper = styled.div`
       width: 100%;
     }
   }
+
+  @media (max-width: 780px) {
+    .flex-row {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 70%;
+    .center-items {
+      width: 60%;
+    }
+  }
 `;
 
 export default Wrapper;

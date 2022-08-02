@@ -78,10 +78,16 @@ p {
   background-attachment: fixed;
   background-color: burlywood;
   height: 100vh;
-  width: 96%;
+  width: calc(100% - 50px);
   position: absolute;
   right: 0;
   top: 0;
+}
+
+/* Logo */
+.logo {
+  width: 80%;
+  margin-left: 8%;
 }
 
 /* Inspiration Box */
@@ -165,7 +171,8 @@ form {
 .delete-btn {
   position: absolute;
   right: 1%;
-  bottom: 5%;
+  bottom: 1%;
+  padding: 1%;
   color: white;
 
 }
@@ -438,4 +445,38 @@ form {
     margin-left: 0;
   }
 
+}
+
+@media (max-width: 780px) {
+  .backward-img {
+    display: none;
+  }
+
+  .progressbar-box {
+    height: 15px;
+    width: 200%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px) {
+
+  /* display: flex;
+  height: 50px;
+  justify-content: space-around;
+  width: 60%;
+  margin: 5% auto 0;
+  align-items: center; */
+  .month-container-m {
+    width: 100%;
+    justify-content: space-between;
+
+    margin: 100% auto 0;
+  }
+
+  .month {
+    width: 80%;
+  }
 }

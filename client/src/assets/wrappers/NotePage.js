@@ -74,19 +74,25 @@ const Wrapper = styled.div`
     margin: 3%;
     padding: 0 1%;
     margin-top: 0;
-
-    /* display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 5%;
-    align-items: flex-start;
-    justify-content: space-between; */
   }
   .note-content,
   .note-content:focus {
     background: transparent;
     border: none;
     outline: none;
+  }
+
+  @media (max-width: 500px) {
+    width: 80%;
+    margin-right: 4%;
+
+    .create-note {
+      width: 200px;
+      margin-top: 40px;
+    }
+    .note-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 `;
 
